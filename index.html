@@ -4,191 +4,270 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Funcomida Official Store</title>
-<meta name="description" content="Toko aplikasi dan produk digital Funcomida.">
-<meta name="theme-color" content="#FDF1E3">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧡</text></svg>">
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💙</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,800;0,900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#FDF1E3;--card:#fff;--ink:#2B1708;--soft:#8A6A50;--o1:#FF9A3C;--o2:#E8590C;--o3:#B93D05;--line:#F3D9BC;--glass:rgba(255,255,255,.62)}
-@media(prefers-color-scheme:dark){:root{--bg:#1B110A;--card:#2A1B10;--ink:#FFF1E0;--soft:#C9A584;--line:#4A3120;--glass:rgba(42,27,16,.7)}}
+:root{--b:#3340E6;--p:#7A4DF2;--ink:#12141C;--mut:#8B90A0;--ln:#ECEEF4;--bg:#F3F4F9}
 *{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
-html{scroll-behavior:smooth}
-body{font-family:"Plus Jakarta Sans",system-ui,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;padding-bottom:110px;
-background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:44px 44px;background-attachment:fixed}
+body{font-family:"Plus Jakarta Sans",system-ui,sans-serif;color:var(--ink);min-height:100vh;background:radial-gradient(800px 400px at 5% -5%,#DDE2FF,transparent),radial-gradient(700px 420px at 100% 15%,#EEE3FF,transparent),var(--bg)}
 button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
 a{color:inherit;text-decoration:none}
-:focus-visible{outline:3px solid var(--o2);outline-offset:2px}
-.wrap{max-width:560px;margin:0 auto;padding:0 16px}
-.top{position:sticky;top:0;z-index:20;background:var(--glass);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:calc(env(safe-area-inset-top,0px) + 10px) 0 10px}
-.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:10px}
-.logo{font-weight:800;font-size:22px;letter-spacing:-.5px;background:linear-gradient(135deg,var(--o1),var(--o3));-webkit-background-clip:text;background-clip:text;color:transparent}
-.logo small{display:block;font-size:11px;font-weight:500;color:var(--soft);-webkit-text-fill-color:var(--soft)}
-.ic{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;background:var(--card);box-shadow:0 4px 14px rgba(232,89,12,.15)}
-.ic svg,.nav svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.stories{display:flex;gap:14px;overflow-x:auto;padding:14px 0 6px;scrollbar-width:none}
-.stories::-webkit-scrollbar{display:none}
-.st{flex:0 0 auto;width:66px;text-align:center;font-size:12px;font-weight:500}
-.ring{width:66px;height:66px;border-radius:50%;padding:3px;background:conic-gradient(var(--o1),var(--o3),var(--o1));display:grid;place-items:center}
-.ring span{width:100%;height:100%;border-radius:50%;background:var(--card);display:grid;place-items:center;font-size:26px;border:2px solid var(--bg)}
-.ring.on{background:var(--ink)}
-.st p{margin-top:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.promo{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:10px 0;scrollbar-width:none}
-.promo::-webkit-scrollbar{display:none}
-.pc{flex:0 0 86%;scroll-snap-align:start;border-radius:26px;padding:20px;color:#fff;position:relative;overflow:hidden;min-height:150px;display:flex;flex-direction:column;justify-content:flex-end;box-shadow:0 14px 30px rgba(232,89,12,.28)}
-.pc::before{content:"";position:absolute;right:-40px;top:-40px;width:160px;height:160px;border-radius:50%;background:rgba(255,255,255,.22);filter:blur(2px)}
-.pc h3{font-size:22px;font-weight:800;letter-spacing:-.4px;position:relative}
-.pc p{font-size:13px;opacity:.92;margin:4px 0 12px;position:relative}
-.kode{align-self:flex-start;background:rgba(255,255,255,.25);border:1px dashed #fff;border-radius:999px;padding:6px 14px;font-weight:700;font-size:13px;position:relative}
-.chips{display:flex;gap:8px;overflow-x:auto;padding:10px 0;scrollbar-width:none}
-.chips::-webkit-scrollbar{display:none}
-.chip{flex:0 0 auto;padding:9px 18px;border-radius:999px;background:var(--card);border:1px solid var(--line);font-weight:700;font-size:13px}
-.chip.on{background:linear-gradient(135deg,var(--o1),var(--o2));color:#fff;border-color:transparent;box-shadow:0 6px 16px rgba(232,89,12,.35)}
-.search{display:flex;align-items:center;gap:10px;background:var(--card);border-radius:18px;padding:0 14px;margin:12px 0 0;border:1px solid var(--line)}
-.search input{flex:1;border:0;background:none;padding:14px 0;font:inherit;color:var(--ink);outline:0}
-.feed{display:grid;gap:18px;padding:8px 0}
-@media(min-width:760px){.wrap{max-width:980px}.feed{grid-template-columns:repeat(2,1fr)}.pc{flex-basis:46%}}
-.post{background:var(--card);border-radius:28px;overflow:hidden;box-shadow:0 10px 28px rgba(122,60,10,.12);border:1px solid var(--line)}
-.ph{display:flex;align-items:center;gap:10px;padding:14px 16px 10px}
-.av{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--o1),var(--o3));display:grid;place-items:center;color:#fff;font-weight:800;font-size:15px}
-.ph b{font-size:14px;display:block}.ph small{color:var(--soft);font-size:12px}
-.badge{margin-left:auto;background:#FFE7CF;color:var(--o3);font-weight:800;font-size:12px;padding:5px 12px;border-radius:999px}
-.cover{display:block;aspect-ratio:4/3;margin:0 10px;border-radius:22px;overflow:hidden;position:relative;background:linear-gradient(135deg,var(--o1),var(--o3));display:grid;place-items:center}
-.cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.cover .em{font-size:76px;filter:drop-shadow(0 10px 14px rgba(0,0,0,.25))}
-.disc{position:absolute;left:12px;bottom:12px;background:#fff;color:var(--o3);font-weight:800;font-size:13px;padding:6px 12px;border-radius:999px;z-index:1}
-.act{display:flex;align-items:center;gap:6px;padding:10px 12px 0}
-.act button{width:40px;height:40px;border-radius:50%;display:grid;place-items:center}
-.act svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.act .lk.on svg{fill:#F0384B;stroke:#F0384B}
-.cta{margin-left:auto;background:linear-gradient(135deg,var(--o1),var(--o2));color:#fff!important;width:auto!important;border-radius:999px!important;padding:0 18px;font-weight:700;font-size:14px;height:40px;box-shadow:0 8px 18px rgba(232,89,12,.35)}
-.pb{padding:4px 18px 18px}
-.pb h2{font-size:18px;font-weight:800;letter-spacing:-.3px}
-.pb p{color:var(--soft);font-size:14px;margin:3px 0 8px;line-height:1.5}
-.price{font-weight:800;font-size:20px;color:var(--o2)}
-.price s{color:var(--soft);font-size:13px;font-weight:500;margin-left:8px}
-.empty{text-align:center;color:var(--soft);padding:40px 10px}
-.nav{position:fixed;left:0;right:0;bottom:0;z-index:30;padding:0 14px calc(env(safe-area-inset-bottom,0px) + 12px)}
-.nav>div{max-width:520px;margin:0 auto;background:var(--glass);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid var(--line);border-radius:30px;display:flex;justify-content:space-around;align-items:center;padding:8px 6px;box-shadow:0 14px 36px rgba(122,60,10,.22)}
-.nav a{display:flex;flex-direction:column;align-items:center;gap:3px;font-size:11px;font-weight:700;color:var(--soft);padding:6px 12px;min-width:60px}
-.nav a.on{color:var(--o2)}
-.fab{width:60px!important;height:60px;min-width:0!important;border-radius:22px;background:linear-gradient(135deg,var(--o1),var(--o3));color:#fff!important;margin-top:-30px;padding:0!important;justify-content:center;box-shadow:0 12px 26px rgba(232,89,12,.5);border:4px solid var(--bg)}
-.fab svg{width:26px;height:26px}
-.back{display:inline-flex;align-items:center;gap:8px;margin:14px 0 8px;font-weight:700}
+:focus-visible{outline:3px solid var(--b);outline-offset:2px}
+svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.wrap{max-width:480px;margin:0 auto;background:#fff;min-height:100vh;padding:0 16px 130px;box-shadow:0 0 70px rgba(40,50,140,.12)}
+.top{position:sticky;top:0;z-index:20;margin:0 -16px;padding:calc(env(safe-area-inset-top,0px) + 14px) 16px 8px;background:rgba(255,255,255,.85);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);display:flex;justify-content:space-between;align-items:center}
+.logo{font-family:Fraunces,Georgia,serif;font-weight:900;font-size:32px;letter-spacing:-1.2px;background:linear-gradient(120deg,#2A44E8,#9050F0);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1}
+.hb{display:flex;gap:4px}
+.ib{position:relative;width:44px;height:44px;display:grid;place-items:center;border-radius:50%}
+.dot{position:absolute;top:6px;right:5px;min-width:18px;height:18px;border-radius:9px;background:var(--b);color:#fff;font-size:11px;font-weight:700;display:grid;place-items:center;padding:0 5px;border:2px solid #fff}
+.dot.s{min-width:9px;width:9px;height:9px;padding:0;top:9px;right:9px}
+.stories{display:flex;gap:14px;overflow-x:auto;padding:10px 0 6px;scrollbar-width:none}
+.stories::-webkit-scrollbar,.car::-webkit-scrollbar,.chips::-webkit-scrollbar,.gal::-webkit-scrollbar{display:none}
+.st{flex:none;width:68px;text-align:center;font-size:12px;font-weight:500;position:relative}
+.ring{width:68px;height:68px;border-radius:50%;padding:2.5px;background:linear-gradient(135deg,#8A55F0,#3340E6)}
+.ring>span{display:grid;place-items:center;width:100%;height:100%;border-radius:50%;border:3px solid #fff;overflow:hidden;font-size:26px;background:#eef}
+.ring img,.av img{width:100%;height:100%;object-fit:cover}
+.st p{margin-top:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.plus{position:absolute;right:2px;top:46px;width:22px;height:22px;border-radius:50%;background:var(--b);color:#fff;border:2px solid #fff;display:grid;place-items:center;font-size:16px;line-height:1;font-weight:700}
+.post{margin:14px 0 24px}
+.pic{position:relative;aspect-ratio:1/1.06;border-radius:30px;overflow:hidden;background:#222}
+.pic>img,.ph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ph{display:grid;place-items:center;font-size:96px}
+.pic::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.4),transparent 38%);pointer-events:none}
+.hit{position:absolute;inset:0;z-index:1}
+.ov{position:absolute;left:14px;right:14px;top:14px;z-index:2;display:flex;align-items:center;gap:10px;color:#fff;pointer-events:none}
+.ov>div{min-width:0}
+.av{width:42px;height:42px;border-radius:50%;border:2px solid #fff;display:grid;place-items:center;font-weight:800;color:#fff;background:linear-gradient(135deg,var(--b),var(--p));overflow:hidden;flex:none}
+.ov b{display:flex;align-items:center;gap:5px;font-size:15px}
+.ov small{display:block;font-size:12px;opacity:.92;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.vf{width:16px;height:16px;border-radius:50%;background:var(--p);color:#fff;font-size:10px;display:inline-grid;place-items:center;font-style:normal;flex:none}
+.mo{margin-left:auto;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.85);color:var(--ink);display:grid;place-items:center;pointer-events:auto;flex:none}
+.mo svg{width:18px;height:18px}
+.disc{position:absolute;left:14px;top:66px;z-index:2;background:var(--b);color:#fff;font-weight:700;font-size:12px;padding:5px 11px;border-radius:999px}
+.bar{position:absolute;left:0;bottom:0;z-index:3;background:#fff;border-top-right-radius:28px;padding:9px 12px 0 0;display:flex;gap:2px;align-items:center}
+.bar button,.bar a{width:40px;height:40px;display:grid;place-items:center;border-radius:50%}
+.lk.on svg{fill:#F0384B;stroke:#F0384B}.lk svg{stroke:#F0384B}
+.lkd{position:absolute;right:12px;bottom:12px;z-index:3;display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:999px;padding:5px 12px 5px 6px;font-size:12px;font-weight:700}
+.stk{display:flex}.stk i{width:24px;height:24px;border-radius:50%;border:2px solid #fff;margin-left:-8px;background:linear-gradient(135deg,#8A55F0,#3340E6);display:block}.stk i:first-child{margin:0;background:linear-gradient(135deg,#FF9A3C,#F43F5E)}.stk i:nth-child(2){background:linear-gradient(135deg,#22D3EE,#3340E6)}
+.meta{color:var(--mut);font-size:12px;margin:10px 4px 4px}
+.cap{font-size:14.5px;line-height:1.5;margin:0 4px}.cap a{color:var(--mut)}
+.pr{font-weight:800;color:var(--b)}.pr s{color:var(--mut);font-weight:500;font-size:12px;margin-left:6px}
+.sb{display:flex;gap:10px;margin:10px 0 0}
+.sbx{flex:1;display:flex;align-items:center;gap:10px;background:#F2F3F7;border-radius:18px;padding:0 14px}
+.sbx input{flex:1;border:0;background:none;padding:15px 0;font:inherit;color:var(--ink);outline:0;min-width:0}
+.sq{width:50px;border-radius:18px;background:#F2F3F7;display:grid;place-items:center}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:14px 0 4px;scrollbar-width:none}
+.chip{flex:none;padding:9px 18px;border-radius:999px;border:1px solid var(--ln);font-weight:600;font-size:13px;background:#fff}
+.chip.on{background:var(--b);color:#fff;border-color:var(--b)}
+h2.sec{font-size:17px;font-weight:800;margin:18px 2px 10px}
+.car{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:20px}
+.cc{flex:none;width:90%;scroll-snap-align:start;border-radius:28px;min-height:190px;padding:16px;color:#fff;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between}
+.cc::before{content:"";position:absolute;right:-30px;bottom:-50px;width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,.2)}
+.cc .t{display:flex;align-items:center;gap:10px;position:relative}
+.cc .t b{font-size:15px;line-height:1.1}.cc .t small{display:block;font-size:11px;opacity:.9}
+.fol{margin-left:auto;background:rgba(255,255,255,.28);border:1px solid rgba(255,255,255,.7);padding:8px 16px;border-radius:999px;font-weight:700;font-size:13px}
+.cc h3{font-size:24px;line-height:1.15;letter-spacing:-.5px;position:relative;margin-top:8px}
+.cc p{font-size:13px;opacity:.95;position:relative;margin-top:4px}
+.lab{align-self:flex-start;background:rgba(255,255,255,.9);color:var(--ink);font-weight:700;font-size:13px;padding:7px 14px;border-radius:14px;position:relative}
+.dots{display:flex;justify-content:center;margin:-34px auto 14px;width:max-content;background:var(--b);padding:6px 10px;border-radius:999px;gap:5px;position:relative}
+.dots i{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.5)}.dots i.on{background:#fff}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tc{position:relative;aspect-ratio:3/3.7;border-radius:24px;overflow:hidden;background:#222;display:block}
+.tc>img,.tc .ph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;font-size:56px}
+.tc::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.3),transparent 40%,rgba(0,0,0,.6))}
+.tc .h{position:absolute;left:10px;top:10px;z-index:1;display:flex;gap:7px;align-items:center;color:#fff;font-size:12px;font-weight:700}
+.tc .h .av{width:28px;height:28px;font-size:12px}
+.tc p{position:absolute;left:12px;right:12px;bottom:10px;z-index:1;color:#fff;font-size:12.5px;font-weight:600;line-height:1.3}
+.em{display:flex;justify-content:space-between;padding:8px 6px 14px}
+.em button{font-size:20px;width:34px;height:34px;border-radius:50%;filter:grayscale(.2)}.em button.on{background:#E9EBFF;filter:none}
+.th2{display:flex;align-items:center;gap:12px;padding:10px 0}
+.th2 .av{width:50px;height:50px;border:0;position:relative;overflow:visible}
+.th2 .av i{position:absolute;right:-2px;bottom:-2px;width:18px;height:18px;border-radius:50%;background:var(--b);border:2px solid #fff;color:#fff;font-size:9px;display:grid;place-items:center;font-style:normal}
+.th2 b{display:block;font-size:14px}.th2 span{font-size:13px;color:var(--mut)}
+.hd{display:flex;align-items:center;gap:12px;margin:12px 0 4px}.hd h1{font-size:19px}
+.bk{width:44px;height:44px;border-radius:50%;border:1px solid var(--ln);display:grid;place-items:center;flex:none}
 .gal{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
-.gal::-webkit-scrollbar{display:none}
-.gal>*{flex:0 0 100%;scroll-snap-align:center;aspect-ratio:4/3;border-radius:26px;object-fit:cover;border:0;background:linear-gradient(135deg,var(--o1),var(--o3));display:grid;place-items:center;font-size:96px}
-.box{background:var(--card);border:1px solid var(--line);border-radius:26px;padding:20px;margin:14px 0;box-shadow:0 10px 28px rgba(122,60,10,.1)}
-.box h1{font-size:26px;font-weight:800;letter-spacing:-.6px;line-height:1.15}
-.box p{line-height:1.65;color:var(--soft);margin-top:10px}
-.feat{list-style:none;padding:0;margin-top:12px;display:grid;gap:8px}
-.feat li{display:flex;gap:10px;align-items:center;font-weight:500}
-.feat li::before{content:"✓";width:22px;height:22px;border-radius:50%;background:#FFE7CF;color:var(--o3);display:grid;place-items:center;font-size:12px;font-weight:800;flex:0 0 auto}
-.btn{display:flex;align-items:center;justify-content:center;gap:8px;border-radius:20px;padding:16px;font-weight:800;margin-top:10px;width:100%}
-.b1{background:linear-gradient(135deg,var(--o1),var(--o2));color:#fff;box-shadow:0 12px 24px rgba(232,89,12,.4)}
-.b2{background:var(--card);border:2px solid var(--o2);color:var(--o2)}
-.bar{position:sticky;bottom:96px;z-index:5}
-.pf{text-align:center;padding:26px 20px}
-.pf .av{width:84px;height:84px;font-size:36px;margin:0 auto 12px}
-.links{display:grid;gap:10px;margin-top:16px}
-.vid{width:100%;aspect-ratio:16/9;border:0;border-radius:22px;margin-top:14px;background:#000}
-.toast{position:fixed;left:50%;bottom:120px;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 18px;border-radius:999px;font-weight:700;font-size:13px;z-index:50;opacity:0;pointer-events:none;transition:opacity .25s}
+.gal>*{flex:none;width:100%;scroll-snap-align:center;aspect-ratio:1/1;border-radius:30px;object-fit:cover;display:grid;place-items:center;font-size:110px;position:relative}
+.box{margin:16px 2px}.box h1{font-size:26px;letter-spacing:-.6px;line-height:1.15;margin-top:8px}
+.box .pr{font-size:24px;display:block;margin-top:8px}
+.box p{line-height:1.65;color:#4A4F5E;margin-top:10px}
+.feat{list-style:none;padding:0;margin-top:14px;display:grid;gap:9px}
+.feat li{display:flex;gap:10px;align-items:center;font-weight:500;font-size:14px}
+.feat li::before{content:"✓";width:22px;height:22px;border-radius:50%;background:#E9EBFF;color:var(--b);display:grid;place-items:center;font-size:12px;font-weight:800;flex:none}
+.vid{width:100%;aspect-ratio:16/9;border:0;border-radius:22px;margin-top:16px;background:#000}
+.badge{display:inline-block;background:#E9EBFF;color:var(--b);font-weight:700;font-size:12px;padding:5px 12px;border-radius:999px}
+.btn{display:flex;align-items:center;justify-content:center;border-radius:999px;padding:16px;font-weight:700;margin-top:10px;width:100%}
+.b1{background:linear-gradient(135deg,#4A58F0,#3340E6);color:#fff;box-shadow:0 12px 26px rgba(51,64,230,.4)}
+.b2{background:#fff;border:2px solid var(--b);color:var(--b)}
+.bb{position:sticky;bottom:96px;z-index:5;background:linear-gradient(transparent,#fff 30%);padding-top:14px}
+.pf{text-align:center;padding:28px 0}.pf .av{width:88px;height:88px;font-size:38px;margin:0 auto 12px;border:0}
+.pf p{color:var(--mut);margin-top:6px}
+.empty{text-align:center;color:var(--mut);padding:50px 10px}
+.nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;z-index:30;padding:0 14px calc(env(safe-area-inset-bottom,0px) + 10px)}
+.nav>div{background:rgba(255,255,255,.88);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid var(--ln);border-radius:34px;display:flex;justify-content:space-around;align-items:center;padding:8px 6px;box-shadow:0 16px 40px rgba(40,50,140,.18)}
+.nav a{display:flex;flex-direction:column;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--mut);padding:6px 10px;min-width:58px}
+.nav a.on{color:var(--b)}
+.fab{width:62px!important;height:62px;min-width:0!important;border-radius:50%;background:linear-gradient(135deg,#4A58F0,#2F3BDB);color:#fff!important;margin-top:-34px;padding:0!important;justify-content:center;box-shadow:0 14px 30px rgba(51,64,230,.55);border:4px solid #fff}
+.nav .mini{width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,#FF9A3C,#F43F5E);color:#fff;font-size:12px;font-weight:800;display:grid;place-items:center}
+.toast{position:fixed;left:50%;bottom:125px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 18px;border-radius:999px;font-weight:600;font-size:13px;z-index:50;opacity:0;pointer-events:none;transition:opacity .25s;max-width:90%;text-align:center}
 .toast.on{opacity:1}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.toast{transition:none}}
+.drf{margin:0 -16px;background:var(--b);color:#fff;font-size:12px;font-weight:600;padding:8px 16px;display:flex;gap:12px;align-items:center}.drf a,.drf button{margin-left:auto;text-decoration:underline}.drf button{margin-left:0}
+/* admin */
+.abar{position:sticky;top:60px;z-index:15;display:flex;align-items:center;justify-content:space-between;gap:10px;background:#fff;padding:10px 0}
+.pill{background:var(--b);color:#fff;font-weight:700;padding:11px 18px;border-radius:999px;font-size:13px;flex:none}
+.hint{font-size:13px;color:var(--mut);line-height:1.55;margin:6px 0}
+details{border:1px solid var(--ln);border-radius:22px;margin:12px 0;padding:0 16px;background:#fff}
+summary{padding:16px 0;font-weight:700;cursor:pointer;display:flex;justify-content:space-between;gap:8px}summary small{color:var(--b);font-weight:700}
+.fm{padding-bottom:16px;display:grid;gap:12px}
+.fm label{display:grid;gap:5px;font-size:12px;font-weight:600;color:var(--mut)}
+.fm input:not([type=file]),.fm textarea{font:inherit;font-size:15px;color:var(--ink);border:1px solid var(--ln);border-radius:14px;padding:12px;background:#F7F8FB;width:100%}
+.fm input[type=color]{height:46px;padding:4px}
+.row{display:flex;gap:8px}.row input{flex:1;min-width:0}
+.gl{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.thm{position:relative;border-radius:16px;overflow:hidden;border:1px solid var(--ln)}
+.thm img{width:100%;aspect-ratio:1;object-fit:cover;display:block}
+.thm button{display:block;width:100%;padding:8px;font-size:12px;font-weight:700;background:#F2F3F7;color:var(--b)}
+.thm .x{position:absolute;top:6px;right:6px;width:28px;height:28px;border-radius:50%;background:rgba(0,0,0,.6);color:#fff;padding:0}
+.up{border:2px dashed var(--b)!important;color:var(--b)!important;text-align:center;padding:14px;border-radius:16px;cursor:pointer;font-size:14px!important;font-weight:700}
+.del{color:#D92D3A;font-weight:700;padding:12px;border-radius:14px;background:#FFF0F1}
+.add{width:100%;padding:14px;border-radius:18px;border:2px dashed var(--ln);font-weight:700;color:var(--b);margin:4px 0 12px}
 </style>
 </head>
 <body>
-<header class="top"><div class="wrap">
+<div class="wrap">
+<header class="top">
   <a href="#/" class="logo" id="logo"></a>
-  <div style="display:flex;gap:8px">
-    <button class="ic" id="btnLike" aria-label="Produk disukai"><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg></button>
-    <a class="ic" id="btnWa" aria-label="Chat WhatsApp"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-12.5 7.3L3 20l1.3-5A8.4 8.4 0 1 1 21 11.5z"/></svg></a>
+  <div class="hb">
+    <a class="ib" href="#/disukai" aria-label="Produk disukai"><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg><i class="dot s"></i></a>
+    <a class="ib" href="#/kabar" aria-label="Kabar dan promo"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-12.5 7.3L3 20l1.3-5A8.4 8.4 0 1 1 21 11.5z"/></svg><i class="dot" id="nb"></i></a>
   </div>
-</div></header>
-<main class="wrap" id="app"></main>
+</header>
+<main id="app"></main>
+</div>
 <nav class="nav"><div>
   <a href="#/" data-n="home"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>Beranda</a>
   <a href="#/cari" data-n="cari"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>Cari</a>
-  <a class="fab" id="fab" aria-label="Chat penjual"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-12.5 7.3L3 20l1.3-5A8.4 8.4 0 1 1 21 11.5z"/><path d="M12 8v6M9 11h6"/></svg></a>
-  <a href="#/promo" data-n="promo"><svg viewBox="0 0 24 24"><path d="M20.6 13.4l-7.2 7.2a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.2"/></svg>Promo</a>
-  <a href="#/profil" data-n="profil"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>Profil</a>
+  <a class="fab" id="fab" aria-label="Chat penjual"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="5"/><path d="M12 8.5v7M8.5 12h7"/></svg></a>
+  <a href="#/kabar" data-n="kabar"><svg viewBox="0 0 24 24"><path d="M20.6 13.4l-7.2 7.2a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.2"/></svg>Promo</a>
+  <a href="#/profil" data-n="profil"><span class="mini">F</span>Profil</a>
 </div></nav>
 <div class="toast" id="toast"></div>
 <script src="products.js"></script>
 <script>
-const $=s=>document.querySelector(s), app=$("#app");
-const rp=n=>"Rp"+Number(n).toLocaleString("id-ID");
-let kat="Semua", q="", liked=[];
+const $_=s=>document.querySelector(s);
+const app=$_("#app"),rp=n=>"Rp"+Number(n||0).toLocaleString("id-ID");
+const esc=s=>String(s??"").replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;");
+let DB=null;try{const d=localStorage.getItem("fc_draft");DB=d?JSON.parse(d):null}catch(e){}
+const DRAFT=!!DB;DB=DB||{TOKO,PROMO,PRODUK};
+const T=DB.TOKO,PR=DB.PROMO,P=DB.PRODUK;
+let kat="Semua",q="",liked=[],react={};
 try{liked=JSON.parse(localStorage.getItem("fc_likes")||"[]")}catch(e){}
-const save=()=>{try{localStorage.setItem("fc_likes",JSON.stringify(liked))}catch(e){}};
-const wa=t=>"https://wa.me/"+TOKO.whatsapp+"?text="+encodeURIComponent(t||"Halo "+TOKO.nama+", saya mau tanya produk.");
-const toast=m=>{const t=$("#toast");t.textContent=m;t.classList.add("on");setTimeout(()=>t.classList.remove("on"),1800)};
+const saveL=()=>{try{localStorage.setItem("fc_likes",JSON.stringify(liked))}catch(e){}};
+const saveD=()=>{try{localStorage.setItem("fc_draft",JSON.stringify(DB))}catch(e){toast("Draf terlalu besar. Unduh sekarang, lalu kurangi gambar.")}};
+const toast=m=>{const t=$_("#toast");t.textContent=m;t.classList.add("on");setTimeout(()=>t.classList.remove("on"),2000)};
+const wa=t=>"https://wa.me/"+T.whatsapp+"?text="+encodeURIComponent(t||"Halo "+T.nama+", saya mau tanya produk.");
 const pct=p=>p.hargaCoret>p.harga?Math.round((1-p.harga/p.hargaCoret)*100):0;
-$("#logo").innerHTML=TOKO.nama.replace(" Official Store","")+"<small>Official Store</small>";
-$("#btnWa").href=wa();$("#fab").href=wa();
-$("#btnLike").onclick=()=>{location.hash="#/disukai"};
-const heart='<svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg>';
-const share='<svg viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg>';
-const cats=()=>["Semua",...new Set(PRODUK.map(p=>p.kategori))];
+const GR=["#3340E6,#8B5CF6","#0EA5A4,#F5C542","#F97316,#F43F5E","#111827,#4F46E5","#EC4899,#8B5CF6"];
+const g=p=>"linear-gradient(135deg,"+GR[(p.nama||"").length%5]+")";
+const cnt=p=>{const n=(p.suka||80+(p.nama||"").length*37)+(liked.includes(p.id)?1:0);return n>=1000?(n/1000).toFixed(1)+"k":n};
+const IC={heart:'<svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg>',chat:'<svg viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-12.5 7.3L3 20l1.3-5A8.4 8.4 0 1 1 21 11.5z"/></svg>',send:'<svg viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg>',smile:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9.5h.01M15 9.5h.01"/></svg>',more:'<svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>',back:'<svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>',x:'<svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>',search:'<svg viewBox="0 0 24 24" style="color:#8B90A0"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>'};
+$_("#logo").textContent=T.nama.replace(/ ?Official Store/i,"");
+$_("#fab").href=wa();$_("#nb").textContent=PR.length;$_("#nb").style.display=PR.length?"":"none";
+const im=(p,c)=>p.gambar&&p.gambar[0]?`<img src="${esc(p.gambar[0])}" alt="${esc(p.nama)}" loading="lazy">`:`<div class="ph" style="background:${g(p)}">${p.emoji||"🎁"}</div>`;
+const avt=p=>`<span class="av">${p.gambar&&p.gambar[0]?`<img src="${esc(p.gambar[0])}" alt="">`:(p.emoji||p.nama[0])}</span>`;
+const handle=p=>"@"+(p.nama||"").toLowerCase().replace(/[^a-z0-9]+/g,"");
+const price=p=>`<span class="pr">${rp(p.harga)}${p.hargaCoret>p.harga?`<s>${rp(p.hargaCoret)}</s>`:""}</span>`;
 
-function cover(p){
-  const d=pct(p);
-  return `<span class="cover">${p.gambar[0]?`<img src="${p.gambar[0]}" alt="${p.nama}" loading="lazy">`:`<span class="em">${p.emoji||"🎁"}</span>`}${d?`<span class="disc">Hemat ${d}%</span>`:""}</span>`;
-}
 function post(p){
-  return `<article class="post">
-  <div class="ph"><div class="av">${p.nama[0]}</div><div><b>${p.nama}</b><small>${p.kategori} · ${TOKO.nama}</small></div>${p.badge?`<span class="badge">${p.badge}</span>`:""}</div>
-  <a href="#/produk/${p.id}">${cover(p)}</a>
-  <div class="act"><button class="lk ${liked.includes(p.id)?"on":""}" data-like="${p.id}" aria-label="Suka">${heart}</button><button data-share="${p.id}" aria-label="Bagikan">${share}</button><a class="cta ic" href="#/produk/${p.id}" style="display:grid;place-items:center">Lihat produk</a></div>
-  <div class="pb"><h2>${p.nama}</h2><p>${p.ringkas}</p><div class="price">${rp(p.harga)}${p.hargaCoret>p.harga?`<s>${rp(p.hargaCoret)}</s>`:""}</div></div></article>`;
+  const d=pct(p);
+  return `<article class="post"><div class="pic">${im(p)}<a class="hit" href="#/produk/${p.id}" aria-label="Buka ${esc(p.nama)}"></a>
+  <div class="ov">${avt(p)}<div><b>${esc(p.nama)} <i class="vf">✓</i></b><small>${esc(p.kategori)}${p.fitur&&p.fitur[0]?", "+esc(p.fitur.slice(0,2).join(", ")):""}</small></div><a class="mo" href="#/produk/${p.id}" aria-label="Detail" style="position:relative;z-index:3">${IC.more}</a></div>
+  ${d?`<span class="disc">Hemat ${d}%</span>`:""}
+  <div class="bar"><button class="lk ${liked.includes(p.id)?"on":""}" data-like="${p.id}" aria-label="Suka">${IC.heart}</button><a href="${wa("Halo, saya tertarik dengan "+p.nama)}" target="_blank" rel="noopener" aria-label="Tanya penjual">${IC.chat}</a><button data-share="${p.id}" aria-label="Bagikan">${IC.send}</button><button data-hi="1" aria-label="Reaksi">${IC.smile}</button></div>
+  <div class="lkd"><span class="stk"><i></i><i></i><i></i></span><span data-c="${p.id}">${cnt(p)} Suka</span></div></div>
+  <p class="meta">${price(p)} · ${esc(p.kategori)}</p>
+  <p class="cap"><b>${esc(p.nama)}</b> ${esc(p.ringkas)} <a href="#/produk/${p.id}">…selengkapnya</a></p></article>`;
 }
-function list(arr){return arr.length?`<div class="feed">${arr.map(post).join("")}</div>`:`<div class="empty">Belum ada produk yang cocok. Coba kata kunci lain.</div>`}
-function filt(){return PRODUK.filter(p=>(kat==="Semua"||p.kategori===kat)&&(p.nama+p.ringkas).toLowerCase().includes(q.toLowerCase()))}
-function promoCards(){return `<div class="promo">${PROMO.map(x=>`<div class="pc" style="background:linear-gradient(135deg,${x.warna},#FF9A3C)"><h3>${x.judul}</h3><p>${x.teks}</p><button class="kode" data-kode="${x.kode}">Salin kode ${x.kode}</button></div>`).join("")}</div>`}
-function chipsH(){return `<div class="chips">${cats().map(c=>`<button class="chip ${c===kat?"on":""}" data-kat="${c}">${c}</button>`).join("")}</div>`}
+const feed=a=>a.length?a.map(post).join(""):`<div class="empty">Belum ada produk di sini.</div>`;
+const filt=()=>P.filter(p=>(kat==="Semua"||p.kategori===kat)&&(p.nama+" "+p.ringkas).toLowerCase().includes(q.toLowerCase()));
+const chipsH=()=>`<div class="chips">${["Semua",...new Set(P.map(p=>p.kategori))].map(c=>`<button class="chip ${c===kat?"on":""}" data-kat="${esc(c)}">${esc(c)}</button>`).join("")}</div>`;
 
 function home(){
-  app.innerHTML=`<div class="stories"><a class="st" href="#/promo"><div class="ring"><span>🔥</span></div><p>Promo</p></a>${PRODUK.map(p=>`<a class="st" href="#/produk/${p.id}"><div class="ring"><span>${p.emoji||"🎁"}</span></div><p>${p.nama}</p></a>`).join("")}</div>${promoCards()}${chipsH()}<div id="lst">${list(filt())}</div>`;
+  app.innerHTML=`<div class="stories"><a class="st" href="#/profil"><div class="ring"><span style="background:linear-gradient(135deg,#FF9A3C,#F43F5E);color:#fff;font-weight:800">F</span></div><i class="plus">+</i><p>Toko kami</p></a><a class="st" href="#/kabar"><div class="ring"><span>🔥</span></div><p>Promo</p></a>${P.map(p=>`<a class="st" href="#/produk/${p.id}"><div class="ring"><span>${p.gambar&&p.gambar[0]?`<img src="${esc(p.gambar[0])}" alt="">`:p.emoji||"🎁"}</span></div><p>${esc(p.nama)}</p></a>`).join("")}</div>${feed(P)}`;
 }
 function cari(){
-  app.innerHTML=`<label class="search"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg><input id="qi" placeholder="Cari aplikasi atau produk" value="${q}"></label>${chipsH()}<div id="lst">${list(filt())}</div>`;
-  const i=$("#qi");i.oninput=()=>{q=i.value;$("#lst").innerHTML=list(filt())};
+  const tr=[...P].sort((a,b)=>(b.suka||0)-(a.suka||0));
+  const body=()=>q||kat!=="Semua"?`<h2 class="sec">Hasil pencarian</h2><div class="grid">${filt().map(tc).join("")}</div>`:`<h2 class="sec">Promo pilihan</h2><div class="car">${PR.map((x,i)=>`<div class="cc" style="background:linear-gradient(135deg,${x.warna},#FFB44C)"><div class="t"><span class="av">${T.nama[0]}</span><div><b>${esc(T.nama.replace(/ ?Official Store/i,""))}</b><small>Official Store</small></div><button class="fol" data-kode="${esc(x.kode)}">Salin kode</button></div><div><h3>${esc(x.judul)}</h3><p>${esc(x.teks)}</p></div><span class="lab">${esc(x.kode)}</span></div>`).join("")}</div><div class="dots">${PR.map((_,i)=>`<i class="${i?"":"on"}"></i>`).join("")}</div><h2 class="sec">🔥 Produk pilihan</h2><div class="grid">${tr.map(tc).join("")}</div>`;
+  app.innerHTML=`<div class="sb"><label class="sbx">${IC.search}<input id="qi" placeholder="Cari aplikasi atau produk" value="${esc(q)}"></label><button class="sq" id="qc" aria-label="Hapus pencarian">${IC.x}</button></div>${chipsH()}<div id="lst">${body()}</div>`;
+  const i=$_("#qi");i.oninput=()=>{q=i.value;$_("#lst").innerHTML=body();dots()};$_("#qc").onclick=()=>{q="";kat="Semua";cari()};dots();
 }
-function promo(){app.innerHTML=`<h1 style="margin:18px 0 4px;font-size:24px">Promo hari ini</h1>${promoCards()}<h2 style="margin:16px 0 4px;font-size:18px">Produk yang lagi diskon</h2>${list(PRODUK.filter(p=>pct(p)>0))}`}
-function disukai(){app.innerHTML=`<h1 style="margin:18px 0 4px;font-size:24px">Produk disukai</h1>${list(PRODUK.filter(p=>liked.includes(p.id)))}`}
-function profil(){
-  app.innerHTML=`<div class="box pf"><div class="av">F</div><h1 style="font-size:22px">${TOKO.nama}</h1><p>${TOKO.slogan}</p><div class="links"><a class="btn b1" href="${wa()}" target="_blank" rel="noopener">Chat lewat WhatsApp</a><a class="btn b2" href="${TOKO.lykd}" target="_blank" rel="noopener">Buka halaman Lykd</a><a class="btn b2" href="${TOKO.instagram}" target="_blank" rel="noopener">Instagram</a></div></div>`;
+function dots(){const s=$_(".car");if(s)s.onscroll=()=>{const i=Math.round(s.scrollLeft/(s.clientWidth*.9));document.querySelectorAll(".dots i").forEach((d,k)=>d.classList.toggle("on",k===i))}}
+function tc(p){return `<div><a class="tc" href="#/produk/${p.id}">${im(p)}<span class="h"><span class="av">${p.emoji||p.nama[0]}</span>${esc(handle(p))}</span><p>${esc(p.ringkas)}</p></a><div class="em">${["🤩","👻","👍","➕"].map(e=>`<button data-em="${p.id}${e}" class="${react[p.id+e]?"on":""}" aria-label="Reaksi ${e}">${e}</button>`).join("")}</div></div>`}
+function kabar(){
+  const it=[...PR.map(x=>`<div class="th2"><span class="av" style="background:${x.warna}">🔥<i>✓</i></span><div style="flex:1"><b>${esc(x.judul)}</b><span>${esc(x.teks)}</span></div><button class="chip on" data-kode="${esc(x.kode)}">${esc(x.kode)}</button></div>`),...P.map(p=>`<a class="th2" href="#/produk/${p.id}">${avt(p).replace('class="av"','class="av" style="overflow:visible"')}<div style="flex:1"><b>${esc(p.nama)}</b><span>${esc(p.ringkas)} · ${rp(p.harga)}</span></div></a>`)];
+  app.innerHTML=`<div class="hd"><a class="bk" href="#/" aria-label="Kembali">${IC.back}</a><h1>Promo dan kabar</h1></div><h2 class="sec">Hari ini</h2>${it.join("")||'<div class="empty">Belum ada kabar.</div>'}`;
 }
-function vid(u){
-  if(!u)return "";
-  const m=u.match(/(?:youtu\.be\/|v=|embed\/)([\w-]{11})/);
-  return m?`<iframe class="vid" src="https://www.youtube.com/embed/${m[1]}" allowfullscreen title="Video produk"></iframe>`:`<video class="vid" src="${u}" controls playsinline></video>`;
-}
+function disukai(){app.innerHTML=`<div class="hd"><a class="bk" href="#/" aria-label="Kembali">${IC.back}</a><h1>Produk disukai</h1></div>${feed(P.filter(p=>liked.includes(p.id)))}`}
+function profil(){app.innerHTML=`<div class="pf"><div class="av" style="background:linear-gradient(135deg,#FF9A3C,#F43F5E)">${T.nama[0]}</div><h1 style="font-size:22px">${esc(T.nama)} <i class="vf">✓</i></h1><p>${esc(T.slogan)}</p><div style="margin-top:18px"><a class="btn b1" href="${wa()}" target="_blank" rel="noopener">Chat lewat WhatsApp</a><a class="btn b2" href="${esc(T.lykd)}" target="_blank" rel="noopener">Buka halaman Lykd</a><a class="btn b2" href="${esc(T.instagram)}" target="_blank" rel="noopener">Instagram</a></div></div>`}
+function vid(u){if(!u)return"";const m=u.match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([\w-]{11})/);return m?`<iframe class="vid" src="https://www.youtube.com/embed/${m[1]}" allowfullscreen title="Video produk"></iframe>`:`<video class="vid" src="${esc(u)}" controls playsinline></video>`}
 function detail(id){
-  const p=PRODUK.find(x=>x.id===id);
-  if(!p){app.innerHTML=`<div class="empty">Produk tidak ditemukan.<br><a class="btn b1" href="#/">Kembali ke beranda</a></div>`;return}
-  const g=p.gambar.length?p.gambar.map(s=>`<img src="${s}" alt="${p.nama}" loading="lazy">`).join(""):`<div>${p.emoji||"🎁"}</div>`;
-  app.innerHTML=`<a class="back" href="#/">← Kembali</a><div class="gal">${g}</div>
-  <div class="box"><span class="badge" style="${p.badge?"":"display:none"}">${p.badge}</span><h1 style="margin-top:8px">${p.nama}</h1>
-  <div class="price" style="margin-top:8px;font-size:24px">${rp(p.harga)}${p.hargaCoret>p.harga?`<s>${rp(p.hargaCoret)}</s>`:""}</div>
-  <p>${p.deskripsi}</p><ul class="feat">${p.fitur.map(f=>`<li>${f}</li>`).join("")}</ul>${vid(p.video)}</div>
-  <div class="bar"><a class="btn b1" href="${p.linkBeli}" target="_blank" rel="noopener">Beli langsung</a>${p.linkLykd?`<a class="btn b2" style="background:var(--bg)" href="${p.linkLykd}" target="_blank" rel="noopener">Beli lewat Lykd</a>`:""}</div>`;
-  document.title=p.nama+" | "+TOKO.nama;
+  const p=P.find(x=>x.id===id);
+  if(!p){app.innerHTML=`<div class="empty">Produk tidak ditemukan.<a class="btn b1" href="#/">Kembali ke beranda</a></div>`;return}
+  const gl=p.gambar&&p.gambar.length?p.gambar.map(s=>`<img src="${esc(s)}" alt="${esc(p.nama)}" loading="lazy">`).join(""):`<div style="background:${g(p)}">${p.emoji||"🎁"}</div>`;
+  app.innerHTML=`<div class="hd"><a class="bk" href="#/" aria-label="Kembali">${IC.back}</a><h1>${esc(p.kategori)}</h1></div><div class="gal">${gl}</div>
+  <div class="box">${p.badge?`<span class="badge">${esc(p.badge)}</span>`:""}<h1>${esc(p.nama)}</h1>${price(p)}<p>${esc(p.deskripsi)}</p><ul class="feat">${(p.fitur||[]).map(f=>`<li>${esc(f)}</li>`).join("")}</ul>${vid(p.video)}</div>
+  <div class="bb"><a class="btn b1" href="${esc(p.linkBeli)}" target="_blank" rel="noopener">Beli langsung</a>${p.linkLykd?`<a class="btn b2" href="${esc(p.linkLykd)}" target="_blank" rel="noopener">Beli lewat Lykd</a>`:""}</div>`;
+  document.title=p.nama+" | "+T.nama;
 }
+/* ===== EDITOR ===== */
+const OPEN=new Set(["TOKO"]);
+const F=(path,label,val,t)=>t==="a"||t==="l"?`<label>${label}<textarea rows="${t==="l"?5:4}" data-p="${path}" data-t="${t}">${esc(val)}</textarea></label>`:`<label>${label}<input data-p="${path}" data-t="${t||""}" value="${esc(val)}" ${t==="n"?'inputmode="numeric"':""} ${t==="c"?'type="color"':""}></label>`;
+const TF=[["nama","Nama toko"],["slogan","Slogan"],["whatsapp","Nomor WhatsApp (format 62812..., tanpa +)"],["instagram","Link Instagram"],["lykd","Link Lykd utama"]];
+const PRF=[["judul","Judul promo"],["teks","Isi promo"],["kode","Kode promo"],["warna","Warna kartu","c"]];
+const PF=[["nama","Nama produk"],["kategori","Kategori"],["emoji","Emoji (tampil jika tanpa gambar)"],["badge","Label (misal Terlaris, Baru)"],["harga","Harga (angka saja)","n"],["hargaCoret","Harga coret, 0 = tanpa diskon","n"],["suka","Jumlah suka (0 = otomatis)","n"],["ringkas","Kalimat singkat di kartu"],["deskripsi","Deskripsi lengkap","a"],["fitur","Fitur, satu per baris","l"],["video","Link video (YouTube atau .mp4)"],["linkBeli","Link beli langsung"],["linkLykd","Link beli lewat Lykd (boleh kosong)"]];
+const det=(k,title,inner)=>`<details data-k="${k}" ${OPEN.has(k)?"open":""}><summary>${title}</summary><div class="fm">${inner}</div></details>`;
+function admin(){
+  app.innerHTML=`<div class="abar"><b style="font-size:18px">Editor toko</b><button class="pill" data-act="dl">Unduh products.js</button></div>
+  <p class="hint">Semua perubahan tersimpan otomatis sebagai draf di HP ini, dan langsung terlihat di Beranda. Supaya tampil untuk pengunjung: tekan <b>Unduh products.js</b>, lalu ganti file products.js di GitHub dengan file itu.</p>
+  ${det("TOKO","Info toko",TF.map(([k,l])=>F("TOKO."+k,l,T[k])).join(""))}
+  ${det("PROMO","Promo ("+PR.length+")",PR.map((x,i)=>`<div class="fm" style="border-bottom:1px solid var(--ln);padding-bottom:14px">${PRF.map(([k,l,t])=>F(`PROMO.${i}.${k}`,l,x[k],t)).join("")}<button class="del" data-act="delpr" data-i="${i}">Hapus promo ini</button></div>`).join("")+`<button class="add" data-act="addpr">+ Tambah promo</button>`)}
+  <h2 class="sec">Produk (${P.length})</h2>
+  ${P.map((p,i)=>det("p"+i,`<span>${esc(p.nama||"Produk")}</span><small>${rp(p.harga)}</small>`,`<div class="gl">${(p.gambar||[]).map((s,j)=>`<div class="thm"><img src="${esc(s)}" alt=""><button data-act="cover" data-i="${i}" data-j="${j}">${j?"Jadikan sampul":"Sampul ✓"}</button><button class="x" data-act="delimg" data-i="${i}" data-j="${j}" aria-label="Hapus gambar">✕</button></div>`).join("")}</div><label class="up">+ Unggah gambar dari galeri<input type="file" accept="image/*" multiple hidden data-file="${i}"></label><div class="row"><input id="u${i}" placeholder="atau tempel link gambar"><button class="pill" data-act="addurl" data-i="${i}">Tambah</button></div>${PF.map(([k,l,t])=>F(`PRODUK.${i}.${k}`,l,t==="l"?(p[k]||[]).join("\n"):p[k],t)).join("")}<button class="del" data-act="delp" data-i="${i}">Hapus produk ini</button>`)).join("")}
+  <button class="add" data-act="addp">+ Tambah produk baru</button>`;
+}
+const comp=f=>new Promise(r=>{const fr=new FileReader();fr.onload=()=>{const i=new Image();i.onload=()=>{const s=Math.min(1,900/Math.max(i.width,i.height)),c=document.createElement("canvas");c.width=i.width*s;c.height=i.height*s;c.getContext("2d").drawImage(i,0,0,c.width,c.height);r(c.toDataURL("image/jpeg",.72))};i.src=fr.result};fr.readAsDataURL(f)});
+const ACT={
+  dl(){const o=`const TOKO = ${JSON.stringify(T,null,2)};\n\nconst PROMO = ${JSON.stringify(PR,null,2)};\n\nconst PRODUK = ${JSON.stringify(P,null,2)};\n`,a=document.createElement("a");a.href=URL.createObjectURL(new Blob([o],{type:"text/javascript"}));a.download="products.js";a.click();toast("products.js diunduh")},
+  addp(){P.push({id:"p"+Date.now().toString(36),nama:"Produk baru",kategori:"Aplikasi",emoji:"🎁",badge:"Baru",harga:0,hargaCoret:0,suka:0,gambar:[],video:"",ringkas:"",deskripsi:"",fitur:[],linkBeli:"",linkLykd:""});OPEN.add("p"+(P.length-1))},
+  delp(i){if(confirm("Hapus produk ini?"))P.splice(i,1);else return 1},
+  addpr(){PR.push({judul:"Promo baru",teks:"",kode:"KODE",warna:"#3340E6"})},
+  delpr(i){if(confirm("Hapus promo ini?"))PR.splice(i,1);else return 1},
+  cover(i,j){const a=P[i].gambar;a.unshift(a.splice(j,1)[0])},
+  delimg(i,j){P[i].gambar.splice(j,1)},
+  addurl(i){const v=$_("#u"+i).value.trim();if(!v)return 1;P[i].gambar.push(v)}
+};
+document.addEventListener("click",e=>{
+  const t=e.target.closest("button,a");if(!t)return;const d=t.dataset;
+  if(d.act){if(d.act==="dl")return ACT.dl();if(ACT[d.act](+d.i,+d.j)!==1){saveD();admin()}return}
+  if(d.kat){kat=d.kat;route()}
+  if(d.like){const i=liked.indexOf(d.like);i<0?liked.push(d.like):liked.splice(i,1);saveL();t.classList.toggle("on");const c=$_(`[data-c="${d.like}"]`);if(c)c.textContent=cnt(P.find(x=>x.id===d.like))+" Suka";toast(i<0?"Disimpan ke disukai":"Dihapus dari disukai")}
+  if(d.share){const p=P.find(x=>x.id===d.share),u=location.origin+location.pathname+"#/produk/"+p.id;if(navigator.share)navigator.share({title:p.nama,url:u}).catch(()=>{});else{navigator.clipboard&&navigator.clipboard.writeText(u);toast("Tautan disalin")}}
+  if(d.hi)toast("Terima kasih sudah mampir 💙");
+  if(d.em){react[d.em]=!react[d.em];t.classList.toggle("on")}
+  if(d.kode){navigator.clipboard&&navigator.clipboard.writeText(d.kode);toast("Kode "+d.kode+" disalin")}
+  if(d.reset){localStorage.removeItem("fc_draft");location.hash="#/";location.reload()}
+});
+document.addEventListener("input",e=>{const d=e.target.dataset;if(!d.p)return;const k=d.p.split(".");let o=DB;k.slice(0,-1).forEach(x=>o=o[x]);let v=e.target.value;if(d.t==="n")v=Number(v)||0;if(d.t==="l")v=v.split("\n").map(s=>s.trim()).filter(Boolean);o[k[k.length-1]]=v;saveD()});
+document.addEventListener("change",async e=>{const i=e.target.dataset.file;if(i==null)return;toast("Memproses gambar…");for(const f of e.target.files)P[i].gambar.push(await comp(f));OPEN.add("p"+i);saveD();admin()});
+document.addEventListener("toggle",e=>{const k=e.target.dataset&&e.target.dataset.k;if(k)e.target.open?OPEN.add(k):OPEN.delete(k)},true);
 function route(){
-  const h=location.hash||"#/", [,a,b]=h.split("/");
-  document.title=TOKO.nama;
-  ({"":home,cari,promo,profil,disukai}[a||""]||(a==="produk"?()=>detail(b):home))();
-  document.querySelectorAll(".nav a[data-n]").forEach(x=>x.classList.toggle("on",x.dataset.n===(a||"home")));
+  const [,a,b]=(location.hash||"#/").split("/");document.title=T.nama;
+  (a==="produk"?()=>detail(b):{cari,kabar,promo:kabar,profil,disukai,admin}[a]||home)();
+  if(DRAFT&&a!=="admin")app.insertAdjacentHTML("afterbegin",`<div class="drf">Pratinjau draf<a href="#/admin">Edit</a><button data-reset="1">Hapus draf</button></div>`);
+  document.querySelectorAll(".nav a[data-n]").forEach(x=>x.classList.toggle("on",x.dataset.n===(a||"home")||(x.dataset.n==="kabar"&&a==="promo")));
   scrollTo(0,0);
 }
-document.addEventListener("click",e=>{
-  const t=e.target.closest("button,a");if(!t)return;
-  if(t.dataset.kat){kat=t.dataset.kat;route()}
-  if(t.dataset.like){const i=liked.indexOf(t.dataset.like);i<0?liked.push(t.dataset.like):liked.splice(i,1);save();t.classList.toggle("on");toast(i<0?"Disimpan ke disukai":"Dihapus dari disukai")}
-  if(t.dataset.share){const p=PRODUK.find(x=>x.id===t.dataset.share),u=location.origin+location.pathname+"#/produk/"+p.id;
-    if(navigator.share)navigator.share({title:p.nama,url:u}).catch(()=>{});else{navigator.clipboard&&navigator.clipboard.writeText(u);toast("Tautan disalin")}}
-  if(t.dataset.kode){navigator.clipboard&&navigator.clipboard.writeText(t.dataset.kode);toast("Kode "+t.dataset.kode+" disalin")}
-});
 addEventListener("hashchange",route);route();
 </script>
 </body>
