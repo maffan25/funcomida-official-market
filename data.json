@@ -1,131 +1,22 @@
 {
  "STORE": {
   "name": "Funcomida Official Store",
-  "bio": "Aplikasi, template & tools digital buatan sendiri. Praktis, estetik, dan siap pakai.",
-  "followers": "12,4rb",
-  "sold": "3.200+",
-  "rating": "4.9",
-  "whatsapp": "6281234567890",
-  "socials": [
-   {
-    "label": "Instagram",
-    "icon": "📸",
-    "url": "https://instagram.com/funcomida"
-   },
-   {
-    "label": "TikTok",
-    "icon": "🎵",
-    "url": "https://tiktok.com/@funcomida"
-   },
-   {
-    "label": "YouTube",
-    "icon": "▶️",
-    "url": "https://youtube.com/@funcomida"
-   },
-   {
-    "label": "Lykd",
-    "icon": "🔗",
-    "url": "https://lykd.com/funcomida"
-   }
-  ]
+  "bio": "",
+  "followers": "0",
+  "sold": "0",
+  "rating": "-",
+  "whatsapp": "6289516976138",
+  "socials": []
  },
- "CATEGORIES": [
-  {
-   "id": "aplikasi",
-   "name": "Aplikasi",
-   "icon": "📱"
-  },
-  {
-   "id": "website",
-   "name": "Website",
-   "icon": "🌐"
-  },
-  {
-   "id": "template",
-   "name": "Template",
-   "icon": "🎨"
-  },
-  {
-   "id": "ebook",
-   "name": "E-book",
-   "icon": "📚"
-  },
-  {
-   "id": "preset",
-   "name": "Preset",
-   "icon": "🎞️"
-  },
-  {
-   "id": "source",
-   "name": "Source Code",
-   "icon": "💻"
-  },
-  {
-   "id": "game",
-   "name": "Game",
-   "icon": "🎮"
-  },
-  {
-   "id": "kursus",
-   "name": "Kursus",
-   "icon": "🎓"
-  },
-  {
-   "id": "bundle",
-   "name": "Bundle",
-   "icon": "🎁"
-  }
- ],
+ "CATEGORIES": [],
  "PRODUCTS": [
   {
-   "id": "beresin",
-   "name": "Beresin",
-   "cat": "aplikasi",
-   "emoji": "🗂️",
-   "color": "#D9E4FF",
-   "badge": "Terlaris",
-   "price": 49000,
-   "oldPrice": 79000,
-   "deal": true,
-   "rating": 5,
-   "reviews": 0,
-   "likes": 0,
-   "image": "",
-   "gallery": [],
-   "video": "",
-   "short": "Inbox terpadu untuk merapikan kegiatan dan notifikasi.",
-   "desc": "Beresin mengumpulkan notifikasi dan kegiatanmu dalam satu inbox bergaya Gmail, lengkap dengan status kegiatan agar harimu lebih teratur.",
-   "features": [
-    "Inbox terpadu",
-    "Status kegiatan",
-    "Tampilan bersih ala Gmail",
-    "Update gratis"
-   ],
-   "badges": [
-    [
-     "⚡",
-     "Instan"
-    ],
-    [
-     "🔒",
-     "Aman"
-    ],
-    [
-     "♾️",
-     "Seumur Hidup"
-    ]
-   ],
-   "buyUrl": "https://wa.me/6281234567890?text=Halo,%20saya%20mau%20beli%20Beresin",
-   "lykdUrl": "https://lykd.id/funcomida"
-  },
-  {
-   "id": "maktabah-learn",
-   "name": "Maktabah Learn",
-   "cat": "website",
-   "emoji": "📚",
-   "color": "#FFE9B8",
-   "badge": "Baru",
-   "price": 99000,
+   "id": "pmwkvly1k",
+   "name": "",
+   "cat": "",
+   "emoji": "🛍️",
+   "color": "#FFF3B0",
+   "price": 0,
    "oldPrice": 0,
    "deal": false,
    "rating": 5,
@@ -134,14 +25,9 @@
    "image": "",
    "gallery": [],
    "video": "",
-   "short": "Perpustakaan PDF Arab, catatan, kuis, dan AI tutor.",
-   "desc": "Website belajar pribadi: simpan kitab PDF Arab, buat catatan, latihan kuis, dan tanya AI tutor dalam satu tempat.",
-   "features": [
-    "Perpustakaan PDF Arab",
-    "Catatan & kuis",
-    "AI tutor",
-    "Sinkron di semua perangkat"
-   ],
+   "short": "",
+   "desc": "",
+   "features": [],
    "badges": [
     [
      "⚡",
@@ -156,297 +42,21 @@
      "Seumur Hidup"
     ]
    ],
-   "buyUrl": "https://wa.me/6281234567890?text=Halo,%20saya%20mau%20beli%20Maktabah%20Learn",
+   "buyUrl": "",
    "lykdUrl": ""
-  },
-  {
-   "id": "tafsir-quran",
-   "name": "Web Tafsir Quran",
-   "cat": "website",
-   "emoji": "🌙",
-   "color": "#D6F5E6",
-   "badge": "",
-   "price": 59000,
-   "oldPrice": 75000,
-   "deal": true,
-   "rating": 5,
-   "reviews": 0,
-   "likes": 0,
-   "image": "",
-   "gallery": [],
-   "video": "",
-   "short": "Tafsir, kalender Hijriyah, jadwal puasa dan sholat.",
-   "desc": "Baca tafsir dengan tampilan modern, dilengkapi kalender Hijriyah/Masehi, jadwal puasa sunnah, dan jadwal sholat.",
-   "features": [
-    "Kalender Hijriyah & Masehi",
-    "Jadwal puasa sunnah",
-    "Jadwal sholat",
-    "Tampilan modern"
-   ],
-   "badges": [
-    [
-     "⚡",
-     "Instan"
-    ],
-    [
-     "🔒",
-     "Aman"
-    ],
-    [
-     "♾️",
-     "Seumur Hidup"
-    ]
-   ],
-   "buyUrl": "https://wa.me/6281234567890?text=Halo,%20saya%20mau%20beli%20Web%20Tafsir",
-   "lykdUrl": "https://lykd.id/funcomida"
-  },
-  {
-   "id": "funcomida-pro",
-   "name": "Funcomida Pro App",
-   "cat": "aplikasi",
-   "emoji": "📲",
-   "color": "#E6EEDC",
-   "price": 49000,
-   "oldPrice": 79000,
-   "deal": true,
-   "rating": 4.8,
-   "reviews": 2340,
-   "likes": 1280,
-   "image": "",
-   "gallery": [],
-   "video": "",
-   "short": "Aplikasi serba guna untuk produktivitas harian.",
-   "desc": "Aplikasi premium dengan fitur lengkap, tampilan bersih, dan update gratis seumur hidup. Cocok untuk kamu yang ingin kerja lebih cepat tanpa ribet.",
-   "features": [
-    "Akses premium seumur hidup",
-    "Update gratis",
-    "Support via WhatsApp",
-    "Tanpa iklan"
-   ],
-   "badges": [
-    [
-     "⚡",
-     "Instan"
-    ],
-    [
-     "🔒",
-     "Aman"
-    ],
-    [
-     "♾️",
-     "Seumur Hidup"
-    ]
-   ],
-   "buyUrl": "https://example.com/beli",
-   "lykdUrl": "https://lykd.com/funcomida/pro"
-  },
-  {
-   "id": "template-notion",
-   "name": "Notion Planner Aesthetic",
-   "cat": "template",
-   "emoji": "🗂️",
-   "color": "#FDE3CF",
-   "price": 35000,
-   "oldPrice": 55000,
-   "deal": true,
-   "rating": 4.9,
-   "reviews": 980,
-   "likes": 870,
-   "image": "",
-   "gallery": [],
-   "video": "",
-   "short": "Template planner harian, mingguan & finansial.",
-   "desc": "Atur hidup dan bisnis dalam satu workspace yang cantik. Tinggal duplikat lalu pakai.",
-   "features": [
-    "12 halaman siap pakai",
-    "Dark & light mode",
-    "Panduan video"
-   ],
-   "badges": [
-    [
-     "🎨",
-     "Estetik"
-    ],
-    [
-     "📄",
-     "Mudah Dipakai"
-    ],
-    [
-     "⚡",
-     "Instan"
-    ]
-   ],
-   "buyUrl": "https://example.com/beli",
-   "lykdUrl": "https://lykd.com/funcomida/notion"
-  },
-  {
-   "id": "ebook-bisnis",
-   "name": "E-book Bisnis Digital 101",
-   "cat": "ebook",
-   "emoji": "📘",
-   "color": "#E3ECF7",
-   "price": 25000,
-   "oldPrice": 0,
-   "deal": false,
-   "rating": 4.7,
-   "reviews": 610,
-   "likes": 540,
-   "image": "",
-   "gallery": [],
-   "video": "",
-   "short": "Panduan jualan produk digital dari nol.",
-   "desc": "Langkah demi langkah memulai bisnis digital: riset, bikin produk, promosi, sampai closing.",
-   "features": [
-    "120 halaman",
-    "Bonus checklist",
-    "Lisensi personal"
-   ],
-   "badges": [
-    [
-     "📖",
-     "120 Hal"
-    ],
-    [
-     "🎁",
-     "Bonus"
-    ],
-    [
-     "⚡",
-     "Instan"
-    ]
-   ],
-   "buyUrl": "https://example.com/beli",
-   "lykdUrl": "https://lykd.com/funcomida/ebook"
-  },
-  {
-   "id": "preset-lr",
-   "name": "Preset Lightroom Warm Tone",
-   "cat": "preset",
-   "emoji": "🌅",
-   "color": "#FFE9B8",
-   "price": 29000,
-   "oldPrice": 49000,
-   "deal": true,
-   "rating": 4.8,
-   "reviews": 1520,
-   "likes": 2100,
-   "image": "",
-   "gallery": [],
-   "video": "",
-   "short": "20 preset mobile & desktop untuk feed estetik.",
-   "desc": "Bikin foto kamu langsung hangat dan konsisten. Support Lightroom Mobile & Desktop.",
-   "features": [
-    "20 preset",
-    "Mobile + desktop",
-    "Panduan instal"
-   ],
-   "badges": [
-    [
-     "📸",
-     "20 Preset"
-    ],
-    [
-     "📱",
-     "Mobile"
-    ],
-    [
-     "⚡",
-     "Instan"
-    ]
-   ],
-   "buyUrl": "https://example.com/beli",
-   "lykdUrl": "https://lykd.com/funcomida/preset"
-  },
-  {
-   "id": "landing-src",
-   "name": "Source Code Landing Page",
-   "cat": "source",
-   "emoji": "🧩",
-   "color": "#E9E1F5",
-   "price": 59000,
-   "oldPrice": 99000,
-   "deal": false,
-   "rating": 4.6,
-   "reviews": 312,
-   "likes": 430,
-   "image": "",
-   "gallery": [],
-   "video": "",
-   "short": "HTML/CSS/JS responsif, siap deploy ke Vercel.",
-   "desc": "Kumpulan landing page siap pakai. Tinggal ganti teks & gambar, lalu deploy.",
-   "features": [
-    "5 desain",
-    "Responsif",
-    "Dokumentasi lengkap"
-   ],
-   "badges": [
-    [
-     "💻",
-     "Clean Code"
-    ],
-    [
-     "📱",
-     "Responsif"
-    ],
-    [
-     "🚀",
-     "Siap Deploy"
-    ]
-   ],
-   "buyUrl": "https://example.com/beli",
-   "lykdUrl": "https://lykd.com/funcomida/source"
-  },
-  {
-   "id": "bundle-kreator",
-   "name": "Bundle Kreator Hemat",
-   "cat": "bundle",
-   "emoji": "🎁",
-   "color": "#FFD9D2",
-   "price": 99000,
-   "oldPrice": 199000,
-   "deal": true,
-   "rating": 5,
-   "reviews": 204,
-   "likes": 1650,
-   "image": "",
-   "gallery": [],
-   "video": "",
-   "short": "Semua produk Funcomida dalam satu paket.",
-   "desc": "Paket terlengkap dengan harga paling hemat. Dapat semua aplikasi, template, e-book, dan preset.",
-   "features": [
-    "Semua produk",
-    "Hemat 50%",
-    "Update bonus"
-   ],
-   "badges": [
-    [
-     "🎁",
-     "Semua Produk"
-    ],
-    [
-     "💸",
-     "Hemat 50%"
-    ],
-    [
-     "♾️",
-     "Seumur Hidup"
-    ]
-   ],
-   "buyUrl": "https://example.com/beli",
-   "lykdUrl": "https://lykd.com/funcomida/bundle"
   }
  ],
  "SITE": {
-  "announce": "Diskon launching sampai akhir bulan. Kode: FUNLAUNCH",
+  "announce": "",
   "heroTitle": "Produk digital buatan sendiri, siap dipakai hari ini",
-  "heroText": "Aplikasi, website, template, e-book, dan preset dari Funcomida. Bayar sekali, langsung dapat akses.",
+  "heroText": "",
   "cta": "Lihat semua produk",
-  "ticker": "Akses instan\nUpdate gratis\nSupport via WhatsApp\nBayar sekali, pakai terus",
+  "ticker": "Akses instan\nUpdate gratis",
   "colors": {
-   "pri": "#6C4DFF",
-   "acc": "#FFE14D",
-   "bg": "#F1EEFF",
-   "ink": "#1B1464"
+   "pri": "#0E9F6E",
+   "acc": "#FFD84D",
+   "bg": "#E8FBF2",
+   "ink": "#0B3B2C"
   }
  }
 }
