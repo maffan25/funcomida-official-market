@@ -2,7 +2,16 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#0f0a1a">
+    <script>
+        /* Pasang tema sebelum halaman tampil (mencegah kedip). Default: gelap */
+        (function () {
+            var t = null;
+            try { t = localStorage.getItem("fc_theme"); } catch (e) {}
+            document.documentElement.setAttribute("data-theme", t === "light" ? "light" : "dark");
+        })();
+    </script>
     <title>Funcomida Official Store - Digital Products Marketplace</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/plus-jakarta-sans@5.0.3/index.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/space-grotesk@5.0.3/index.min.css">
@@ -108,7 +117,7 @@
         }
 
         .navbar.scrolled {
-            background: rgba(15, 10, 26, 0.9);
+            background: var(--nav-bg);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--glass-border);
             padding: 0.7rem 2rem;
@@ -335,7 +344,7 @@
         }
 
         .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
+            background: var(--glass-hover);
             transform: translateY(-3px);
             border-color: var(--primary-light);
         }
@@ -448,7 +457,7 @@
             font-family: 'Space Grotesk', sans-serif;
             font-size: 1.1rem;
             font-weight: 700;
-            color: #10b981;
+            color: var(--price);
             margin-top: 0.5rem;
         }
 
@@ -717,7 +726,7 @@
             font-family: 'Space Grotesk', sans-serif;
             font-size: 1.3rem;
             font-weight: 700;
-            color: #10b981;
+            color: var(--price);
         }
 
         .product-price .original {
@@ -1127,7 +1136,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(15, 10, 26, 0.98);
+            background: var(--menu-bg);
             backdrop-filter: blur(20px);
             z-index: 999;
             flex-direction: column;
@@ -1281,6 +1290,503 @@
         ::-webkit-scrollbar-thumb:hover {
             background: var(--primary);
         }
+
+        /* =====================================================
+           PENYESUAIAN: variabel tema, tombol tema, perbaikan HP,
+           halaman detail produk
+           ===================================================== */
+        :root {
+            --price: #10b981;
+            --nav-bg: rgba(15, 10, 26, 0.9);
+            --menu-bg: rgba(15, 10, 26, 0.98);
+            --glass-hover: rgba(255, 255, 255, 0.1);
+            color-scheme: dark;
+        }
+
+        :root[data-theme="light"] {
+            --primary-light: #6d28d9;
+            --dark: #f5f3ff;
+            --dark-card: #ffffff;
+            --dark-surface: #ebe7f8;
+            --text-primary: #1b1530;
+            --text-secondary: #5d5878;
+            --glass: rgba(124, 58, 237, 0.07);
+            --glass-border: rgba(60, 40, 110, 0.14);
+            --glass-hover: rgba(124, 58, 237, 0.12);
+            --price: #059669;
+            --nav-bg: rgba(245, 243, 255, 0.9);
+            --menu-bg: rgba(245, 243, 255, 0.98);
+            color-scheme: light;
+        }
+
+        html { -webkit-text-size-adjust: 100%; }
+        html, body { max-width: 100%; overflow-x: hidden; }
+        body { -webkit-tap-highlight-color: transparent; }
+        button { font-family: inherit; }
+        :focus-visible { outline: 2px solid var(--primary-light); outline-offset: 2px; }
+
+        /* ---- Tombol tema ---- */
+        .icon-btn {
+            width: 40px;
+            height: 40px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            border: 1px solid var(--glass-border);
+            background: var(--glass);
+            color: var(--text-primary);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.25s ease, border-color 0.25s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .icon-btn:hover { border-color: var(--primary-light); transform: translateY(-2px); }
+        .theme-toggle .i-moon { display: none; }
+        :root[data-theme="light"] .theme-toggle .i-sun { display: none; }
+        :root[data-theme="light"] .theme-toggle .i-moon { display: inline; }
+
+        .nav-mobile-actions { display: none; align-items: center; gap: 0.6rem; }
+
+        /* ---- Mode terang: penyesuaian elemen yang warnanya dikunci ---- */
+        :root[data-theme="light"] .bg-animation .orb { opacity: 0.16; }
+        :root[data-theme="light"] .floating-card {
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 10px 30px rgba(80, 50, 160, 0.12);
+        }
+        :root[data-theme="light"] .floating-card .card-icon { color: #fff; }
+        :root[data-theme="light"] .category-card,
+        :root[data-theme="light"] .product-card,
+        :root[data-theme="light"] .feature-card,
+        :root[data-theme="light"] .testimonial-card,
+        :root[data-theme="light"] .cta-container {
+            box-shadow: 0 4px 18px rgba(80, 50, 160, 0.07);
+        }
+        :root[data-theme="light"] .product-card:hover { box-shadow: 0 25px 50px rgba(80, 50, 160, 0.18); }
+        :root[data-theme="light"] .category-card:nth-child(1) .category-icon { color: #7c3aed; }
+        :root[data-theme="light"] .category-card:nth-child(2) .category-icon { color: #0891b2; }
+        :root[data-theme="light"] .category-card:nth-child(3) .category-icon { color: #e11d48; }
+        :root[data-theme="light"] .category-card:nth-child(4) .category-icon { color: #059669; }
+        :root[data-theme="light"] .category-card:nth-child(5) .category-icon { color: #d97706; }
+        :root[data-theme="light"] .category-card:nth-child(6) .category-icon { color: #db2777; }
+        :root[data-theme="light"] .feature-card:nth-child(1) .feature-icon { color: #7c3aed; }
+        :root[data-theme="light"] .feature-card:nth-child(2) .feature-icon { color: #0891b2; }
+        :root[data-theme="light"] .feature-card:nth-child(3) .feature-icon { color: #e11d48; }
+        :root[data-theme="light"] .feature-card:nth-child(4) .feature-icon { color: #059669; }
+
+        /* ---- Kartu produk bisa diklik ---- */
+        .product-card { cursor: pointer; }
+        .product-card:focus-visible { outline-offset: 3px; }
+
+        @media (hover: none) {
+            .product-card:hover, .category-card:hover,
+            .feature-card:hover, .testimonial-card:hover { transform: none; }
+            .product-card:active { transform: scale(0.985); }
+        }
+
+        /* ---- Grid aman untuk layar sempit (mencegah geser ke samping) ---- */
+        .categories-grid { grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); }
+        .products-grid { grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); }
+        .features-grid { grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr)); }
+        .testimonials-grid { grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); }
+        .product-meta { flex-wrap: wrap; gap: 0.4rem 0.75rem; }
+
+        /* =====================  TAMPILAN HP  ===================== */
+        @media (max-width: 768px) {
+            .nav-mobile-actions { display: flex; }
+
+            .navbar { padding: 0.85rem 1.25rem; padding-top: calc(0.85rem + env(safe-area-inset-top, 0px)); }
+            .navbar.scrolled { padding: 0.6rem 1.25rem; padding-top: calc(0.6rem + env(safe-area-inset-top, 0px)); }
+            .nav-logo { gap: 0.6rem; }
+            .nav-logo-icon { width: 40px; height: 40px; font-size: 1.15rem; border-radius: 11px; }
+            .nav-logo-text { font-size: 1.15rem; }
+
+            .hero { min-height: auto; padding: 5.5rem 1.25rem 2.5rem; }
+            .hero-container { gap: 1.75rem; }
+            .hero-badge { font-size: 0.78rem; padding: 0.4rem 0.85rem; margin-bottom: 1.1rem; }
+            .hero h1 { font-size: clamp(1.9rem, 8.4vw, 2.6rem); margin-bottom: 1rem; }
+            .hero p { font-size: 1rem; margin-bottom: 1.5rem; }
+
+            .hero-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+            .hero-buttons > a, .cta-buttons > a {
+                justify-content: center;
+                padding: 0.85rem 0.9rem;
+                font-size: 0.92rem;
+                white-space: nowrap;
+            }
+
+            .hero-stats {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 0.5rem;
+                margin-top: 2rem;
+                padding-top: 1.5rem;
+                text-align: center;
+            }
+            .stat-item h3 { font-size: 1.35rem; }
+            .stat-item p { font-size: 0.72rem; line-height: 1.3; }
+
+            /* kartu melayang dirapikan: tidak saling menimpa */
+            .hero-card-stack { max-width: 340px; width: 100%; aspect-ratio: auto; height: 290px; margin: 0 auto; }
+            .floating-card {
+                display: grid;
+                grid-template-columns: 42px 1fr;
+                column-gap: 0.8rem;
+                align-items: center;
+                padding: 0.8rem 1rem;
+                border-radius: 16px;
+                animation-name: floatCardSm;
+            }
+            .floating-card:nth-child(1) { top: 0; left: 0; right: auto; bottom: auto; width: 68%; }
+            .floating-card:nth-child(2) { top: 100px; right: 0; left: auto; bottom: auto; width: 68%; }
+            .floating-card:nth-child(3) { top: 200px; left: 0; right: auto; bottom: auto; width: 68%; }
+            .floating-card .card-icon {
+                grid-row: 1 / span 3;
+                width: 42px;
+                height: 42px;
+                margin: 0;
+                font-size: 1.05rem;
+                border-radius: 11px;
+            }
+            .floating-card h4 { font-size: 0.88rem; margin: 0; line-height: 1.3; }
+            .floating-card p { font-size: 0.75rem; line-height: 1.3; }
+            .floating-card .price { font-size: 1rem; margin-top: 0.15rem; line-height: 1.3; }
+
+            section { padding: 3.5rem 1.25rem; }
+            .section-header { margin-bottom: 2rem; }
+            .section-header h2 { font-size: clamp(1.5rem, 6.4vw, 2rem); }
+            .section-header p { font-size: 0.95rem; }
+
+            .categories-grid, .features-grid, .testimonials-grid { gap: 1rem; }
+            .products-grid { gap: 1.25rem; }
+            .category-card { padding: 1.25rem; }
+            .category-icon { width: 52px; height: 52px; margin-bottom: 1rem; }
+            .product-image { height: 190px; }
+            .product-info { padding: 1.15rem; }
+            .product-price { font-size: 1.15rem; }
+            .product-wishlist { width: 40px; height: 40px; }
+            .feature-card { padding: 1.75rem 1.25rem; }
+            .testimonial-card { padding: 1.4rem; }
+
+            .cta-section { padding: 3.5rem 1.25rem; }
+            .cta-container { padding: 2.25rem 1.25rem; border-radius: 24px; }
+            .cta-container p { font-size: 1rem; }
+            .cta-buttons { flex-direction: column; }
+            .cta-buttons > a { width: 100%; }
+
+            .footer { padding: 3rem 1.25rem 1.5rem; }
+            .footer-container { grid-template-columns: 1fr 1fr; gap: 2rem 1.25rem; }
+            .footer-brand { grid-column: 1 / -1; }
+            .footer-brand p { max-width: none; }
+            .footer-bottom { margin-top: 2rem; padding-top: 1.5rem; }
+
+            .whatsapp-float { bottom: calc(1rem + env(safe-area-inset-bottom, 0px)); right: 1rem; }
+            .whatsapp-float a { width: 52px; height: 52px; font-size: 1.35rem; }
+
+            .mobile-menu a { font-size: 1.35rem; }
+        }
+
+        @media (max-width: 380px) {
+            .hero-buttons { grid-template-columns: 1fr; }
+            .hero-card-stack { height: 280px; }
+            .floating-card { padding: 0.7rem 0.8rem; column-gap: 0.65rem; }
+            .floating-card:nth-child(1), .floating-card:nth-child(2), .floating-card:nth-child(3) { width: 74%; }
+        }
+
+        @keyframes floatCardSm {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+
+        /* =====================  HALAMAN DETAIL PRODUK  ===================== */
+        .pd {
+            position: fixed;
+            inset: 0;
+            z-index: 2000;
+            background: var(--dark);
+            color: var(--text-primary);
+            overflow-y: auto;
+            overscroll-behavior: contain;
+            -webkit-overflow-scrolling: touch;
+            visibility: hidden;
+            opacity: 0;
+            transform: translateX(24px);
+            transition: transform 0.3s ease, opacity 0.3s ease, visibility 0s linear 0.3s;
+        }
+
+        .pd.open {
+            visibility: visible;
+            opacity: 1;
+            transform: none;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .pd-top {
+            position: sticky;
+            top: 0;
+            z-index: 5;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.7rem 1rem;
+            padding-top: calc(0.7rem + env(safe-area-inset-top, 0px));
+            background: var(--nav-bg);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .pd-top h2 {
+            flex: 1;
+            min-width: 0;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .pd-wrap {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 1.25rem 1.25rem calc(110px + env(safe-area-inset-bottom, 0px));
+        }
+
+        .pd-grid { display: flex; flex-direction: column; gap: 1.5rem; }
+        .pd-left, .pd-right { display: contents; }
+        .pd-media { order: 1; }
+        .pd-info { order: 2; }
+        .pd-desc { order: 3; }
+        .pd-videosec { order: 4; }
+        .pd-feats-sec { order: 5; }
+
+        @media (min-width: 900px) {
+            .pd-wrap { padding-top: 2rem; }
+            .pd-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 2.5rem; align-items: start; }
+            .pd-left, .pd-right { display: flex; flex-direction: column; gap: 1.5rem; }
+            .pd-left { position: sticky; top: 5rem; }
+        }
+
+        .pd-media {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            background: var(--dark-card);
+            border: 1px solid var(--glass-border);
+        }
+
+        .pd-slides {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+        }
+
+        .pd-slides::-webkit-scrollbar { display: none; }
+
+        .pd-slide {
+            flex: 0 0 100%;
+            scroll-snap-align: center;
+            aspect-ratio: 4 / 3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4.5rem;
+        }
+
+        .pd-slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        .pd-dots {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0.8rem;
+            display: flex;
+            justify-content: center;
+            gap: 0.4rem;
+        }
+
+        .pd-dot {
+            width: 7px;
+            height: 7px;
+            padding: 0;
+            border: 0;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: width 0.25s ease, background 0.25s ease;
+        }
+
+        .pd-dot.on { width: 18px; background: #fff; }
+
+        .pd-cat {
+            font-size: 0.75rem;
+            color: var(--primary-light);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .pd-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(1.35rem, 5.5vw, 2rem);
+            line-height: 1.25;
+            font-weight: 700;
+            margin: 0.3rem 0 0.6rem;
+        }
+
+        .pd-rating { display: flex; align-items: center; gap: 0.35rem; font-size: 0.9rem; color: #fbbf24; }
+        .pd-rating span { color: var(--text-secondary); }
+
+        .pd-price-row { display: flex; align-items: baseline; flex-wrap: wrap; gap: 0.4rem 0.75rem; margin: 1rem 0 1.1rem; }
+        .pd-price { font-family: 'Space Grotesk', sans-serif; font-size: 1.9rem; font-weight: 700; color: var(--price); }
+        .pd-old { font-size: 0.95rem; color: var(--text-secondary); text-decoration: line-through; }
+        .pd-save {
+            background: rgba(244, 63, 94, 0.14);
+            color: var(--accent);
+            padding: 0.15rem 0.65rem;
+            border-radius: 50px;
+            font-size: 0.78rem;
+            font-weight: 700;
+        }
+
+        .pd-actions { display: flex; gap: 0.6rem; }
+
+        .pd-chip {
+            flex: 1;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.75rem 0.5rem;
+            border-radius: 14px;
+            border: 1px solid var(--glass-border);
+            background: var(--glass);
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .pd-chip.like.on { color: var(--accent); border-color: var(--accent); background: rgba(244, 63, 94, 0.1); }
+        .pd-chip.save.on { color: var(--primary-light); border-color: var(--primary); background: rgba(124, 58, 237, 0.12); }
+
+        .pd-sec h3 {
+            display: flex;
+            align-items: center;
+            gap: 0.55rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .pd-sec h3 i { color: var(--primary-light); font-size: 0.95rem; }
+        .pd-desc p { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.75; margin-bottom: 0.75rem; }
+
+        .pd-video {
+            position: relative;
+            aspect-ratio: 16 / 9;
+            border-radius: 20px;
+            overflow: hidden;
+            background: #000;
+            border: 1px solid var(--glass-border);
+        }
+
+        .pd-video iframe, .pd-video video { width: 100%; height: 100%; border: 0; display: block; }
+
+        .pd-video.empty {
+            background: linear-gradient(135deg, #1e1145, #2d1b69);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            color: #c4b5fd;
+            text-align: center;
+            padding: 1rem;
+            font-size: 0.85rem;
+        }
+
+        .pd-video.empty i { font-size: 2.6rem; }
+
+        .pd-feats { list-style: none; display: grid; gap: 0.6rem; }
+        .pd-feats li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.7rem;
+            padding: 0.8rem 0.95rem;
+            background: var(--dark-card);
+            border: 1px solid var(--glass-border);
+            border-radius: 14px;
+            font-size: 0.92rem;
+            line-height: 1.5;
+        }
+        .pd-feats li i { color: var(--price); margin-top: 0.2rem; }
+
+        .pd-buy {
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 6;
+            padding: 0.75rem 1rem calc(0.75rem + env(safe-area-inset-bottom, 0px));
+            background: var(--nav-bg);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .pd-buy-in { max-width: 1100px; margin: 0 auto; display: flex; gap: 0.7rem; }
+
+        .pd-btn {
+            flex: 1;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.9rem 0.5rem;
+            border: 0;
+            border-radius: 50px;
+            color: #fff;
+            font-weight: 700;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            text-decoration: none;
+            cursor: pointer;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .pd-btn:hover { transform: translateY(-2px); }
+        .pd-btn.wa { background: linear-gradient(135deg, #25d366, #128c7e); box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3); }
+        .pd-btn.lykd { background: var(--gradient-1); box-shadow: 0 4px 20px rgba(124, 58, 237, 0.4); }
+
+        .pd-toast {
+            position: fixed;
+            left: 50%;
+            bottom: calc(90px + env(safe-area-inset-bottom, 0px));
+            transform: translate(-50%, 10px);
+            z-index: 2100;
+            max-width: 90vw;
+            padding: 0.6rem 1.1rem;
+            border-radius: 50px;
+            border: 1px solid var(--glass-border);
+            background: var(--dark-surface);
+            color: var(--text-primary);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-align: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s ease, transform 0.25s ease;
+        }
+
+        .pd-toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+        @media (prefers-reduced-motion: reduce) {
+            .pd, .pd.open { transition: none; }
+        }
     </style>
 </head>
 <body>
@@ -1304,10 +1810,20 @@
                 <li><a href="#products">Produk</a></li>
                 <li><a href="#testimonials">Testimoni</a></li>
                 <li><a href="#contact" class="nav-cta">Hubungi Kami</a></li>
+                <li>
+                    <button class="icon-btn theme-toggle" type="button" aria-label="Ganti tema">
+                        <i class="fas fa-sun i-sun"></i><i class="fas fa-moon i-moon"></i>
+                    </button>
+                </li>
             </ul>
-            <button class="mobile-toggle" onclick="toggleMobileMenu()">
-                <i class="fas fa-bars"></i>
-            </button>
+            <div class="nav-mobile-actions">
+                <button class="icon-btn theme-toggle" type="button" aria-label="Ganti tema">
+                    <i class="fas fa-sun i-sun"></i><i class="fas fa-moon i-moon"></i>
+                </button>
+                <button class="mobile-toggle" type="button" onclick="toggleMobileMenu()" aria-label="Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
         </div>
     </nav>
 
@@ -1438,7 +1954,7 @@
             <p>Produk-produk terbaik yang paling banyak diminati oleh pelanggan kami</p>
         </div>
         <div class="products-grid">
-            <div class="product-card reveal">
+            <div class="product-card reveal" data-id="social-media-template-pack">
                 <div class="product-image">
                     <div class="img-placeholder">
                         <i class="fas fa-palette" style="color: #a78bfa;"></i>
@@ -1461,7 +1977,7 @@
                     </button>
                 </div>
             </div>
-            <div class="product-card reveal">
+            <div class="product-card reveal" data-id="landing-page-premium">
                 <div class="product-image">
                     <div class="img-placeholder">
                         <i class="fas fa-code" style="color: #67e8f9;"></i>
@@ -1484,7 +2000,7 @@
                     </button>
                 </div>
             </div>
-            <div class="product-card reveal">
+            <div class="product-card reveal" data-id="bundle-ebook-digital-marketing">
                 <div class="product-image">
                     <div class="img-placeholder">
                         <i class="fas fa-book-open" style="color: #fb7185;"></i>
@@ -1507,7 +2023,7 @@
                     </button>
                 </div>
             </div>
-            <div class="product-card reveal">
+            <div class="product-card reveal" data-id="full-course-bisnis-online">
                 <div class="product-image">
                     <div class="img-placeholder">
                         <i class="fas fa-video" style="color: #6ee7b7;"></i>
@@ -1530,7 +2046,7 @@
                     </button>
                 </div>
             </div>
-            <div class="product-card reveal">
+            <div class="product-card reveal" data-id="presentation-deck-pro">
                 <div class="product-image">
                     <div class="img-placeholder">
                         <i class="fas fa-file-powerpoint" style="color: #fcd34d;"></i>
@@ -1553,7 +2069,7 @@
                     </button>
                 </div>
             </div>
-            <div class="product-card reveal">
+            <div class="product-card reveal" data-id="premium-stock-photo-bundle">
                 <div class="product-image">
                     <div class="img-placeholder">
                         <i class="fas fa-camera" style="color: #f9a8d4;"></i>
@@ -1678,7 +2194,7 @@
             <h2>Siap Tingkatkan Bisnis Anda?</h2>
             <p>Hubungi kami sekarang dan dapatkan konsultasi gratis serta diskon spesial untuk pembelian pertama Anda!</p>
             <div class="cta-buttons">
-                <a href="https://wa.me/6281234567890?text=Halo%20Funcomida%2C%20saya%20tertarik%20dengan%20produk%20digital%20Anda" class="btn-whatsapp" target="_blank">
+                <a href="https://wa.me/6289516976138?text=Halo%20Funcomida%2C%20saya%20tertarik%20dengan%20produk%20digital%20Anda" data-wa="Halo Funcomida, saya tertarik dengan produk digital Anda" class="btn-whatsapp" target="_blank" rel="noopener">
                     <i class="fab fa-whatsapp"></i> Chat via WhatsApp
                 </a>
                 <a href="#products" class="btn-secondary">
@@ -1741,10 +2257,14 @@
 
     <!-- WhatsApp Float Button -->
     <div class="whatsapp-float">
-        <a href="https://wa.me/6281234567890?text=Halo%20Funcomida%2C%20saya%20ingin%20bertanya%20tentang%20produk%20digital" target="_blank" title="Chat WhatsApp">
+        <a href="https://wa.me/6289516976138?text=Halo%20Funcomida%2C%20saya%20ingin%20bertanya%20tentang%20produk%20digital" data-wa="Halo Funcomida, saya ingin bertanya tentang produk digital" target="_blank" rel="noopener" title="Chat WhatsApp">
             <i class="fab fa-whatsapp"></i>
         </a>
     </div>
+
+    <!-- Halaman detail produk (diisi otomatis saat produk diklik) -->
+    <div class="pd" id="pd" role="dialog" aria-modal="true" aria-labelledby="pdHeading" aria-hidden="true"></div>
+    <div class="pd-toast" id="pdToast" role="status" aria-live="polite"></div>
 
     <script>
         // Navbar scroll effect
@@ -1781,33 +2301,13 @@
         window.addEventListener('scroll', revealOnScroll);
         window.addEventListener('load', revealOnScroll);
 
-        // Wishlist toggle
-        document.querySelectorAll('.product-wishlist').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const icon = this.querySelector('i');
-                icon.classList.toggle('far');
-                icon.classList.toggle('fas');
-                if (icon.classList.contains('fas')) {
-                    this.style.background = 'var(--accent)';
-                    this.style.transform = 'scale(1.2)';
-                    setTimeout(() => this.style.transform = 'scale(1)', 200);
-                } else {
-                    this.style.background = 'rgba(0, 0, 0, 0.5)';
-                }
-            });
-        });
-
-        // Order product via WhatsApp
-        function orderProduct(productName) {
-            const message = encodeURIComponent(`Halo Funcomida, saya ingin memesan produk: *${productName}*. Mohon info lebih lanjut ya. Terima kasih!`);
-            window.open(`https://wa.me/6281234567890?text=${message}`, '_blank');
-        }
-
         // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
+                const href = this.getAttribute('href');
+                if (href.length < 2) { window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
+                const target = document.querySelector(href);
                 if (target) {
                     target.scrollIntoView({
                         behavior: 'smooth',
@@ -1862,6 +2362,404 @@
 
         const heroStats = document.querySelector('.hero-stats');
         if (heroStats) heroObserver.observe(heroStats);
+
+        /* =========================================================
+           PENGATURAN TOKO  (ubah di sini saja)
+           ========================================================= */
+        // Nomor WhatsApp penjual: awali 62, tanpa + dan tanpa spasi
+        const WA_NUMBER = '6289516976138';
+
+        // Link Lykd cadangan (dipakai bila produk belum punya link sendiri)
+        const LYKD_STORE_URL = '';
+
+        /* Isi tambahan tiap produk untuk halaman detailnya.
+           - images : daftar foto, contoh ['foto/1.jpg', 'foto/2.jpg'] (kosong = pakai ikon seperti di kartu)
+           - video  : link YouTube (watch / youtu.be / shorts) atau file .mp4 (kosong = tampil kotak "segera hadir")
+           - lykd   : link beli lewat Lykd untuk produk ini
+           - desc   : paragraf deskripsi
+           - features : daftar keunggulan
+           Nama, harga, rating, dan label diambil otomatis dari kartu produk di atas. */
+        const PRODUCT_EXTRAS = {
+            'social-media-template-pack': {
+                images: [], video: '', lykd: '',
+                desc: [
+                    'Koleksi template Instagram, Facebook, dan TikTok siap edit di Canva. Cocok untuk konten kreator dan UMKM yang ingin tampilan feed rapi tanpa harus mendesain dari nol.',
+                    'Setelah pembayaran dikonfirmasi, kamu langsung mendapat akses ke seluruh file dan bisa mulai mengedit.'
+                ],
+                features: ['200+ desain siap edit', 'Format Canva, mudah diubah tanpa skill desain', 'Cocok untuk Instagram, Facebook, dan TikTok', 'Akses seumur hidup dan update gratis']
+            },
+            'landing-page-premium': {
+                images: [], video: '', lykd: '',
+                desc: [
+                    'Template landing page responsif untuk berbagai jenis bisnis. Sudah termasuk form dan animasi modern.',
+                    'Tinggal ganti teks, gambar, dan warna sesuai brand kamu, lalu halaman siap dipublikasikan.'
+                ],
+                features: ['Responsif di HP, tablet, dan desktop', 'Multi niche, cocok untuk berbagai bisnis', 'Sudah termasuk form dan animasi modern', 'Akses seumur hidup dan update gratis']
+            },
+            'bundle-ebook-digital-marketing': {
+                images: [], video: '', lykd: '',
+                desc: [
+                    '10 e-book lengkap tentang strategi digital marketing, SEO, social media marketing, dan content marketing.',
+                    'Disusun praktis agar bisa langsung kamu terapkan untuk mengembangkan bisnis atau jasa online.'
+                ],
+                features: ['10 e-book dalam satu bundle', 'Materi SEO, social media, dan content marketing', 'Panduan praktis yang bisa langsung diterapkan', 'Akses instan setelah pembayaran dikonfirmasi']
+            },
+            'full-course-bisnis-online': {
+                images: [], video: '', lykd: '',
+                desc: [
+                    '50+ video tutorial lengkap untuk membangun bisnis online dari nol sampai sukses.',
+                    'Termasuk akses grup eksklusif dan mentoring, jadi kamu tidak belajar sendirian.'
+                ],
+                features: ['50+ video tutorial dari nol', 'Akses grup eksklusif', 'Termasuk mentoring', 'Akses seumur hidup dan update gratis']
+            },
+            'presentation-deck-pro': {
+                images: [], video: '', lykd: '',
+                desc: [
+                    'Template presentasi profesional untuk pitch deck, laporan, dan meeting.',
+                    'Bisa diedit di PowerPoint dan Google Slides, sehingga mudah disesuaikan dengan kebutuhanmu.'
+                ],
+                features: ['100+ slide siap pakai', 'Cocok untuk pitch deck, laporan, dan meeting', 'Bisa diedit di PowerPoint dan Google Slides', 'Akses seumur hidup dan update gratis']
+            },
+            'premium-stock-photo-bundle': {
+                images: [], video: '', lykd: '',
+                desc: [
+                    'Koleksi foto berkualitas tinggi untuk konten, website, dan marketing.',
+                    'Resolusi tinggi dengan lisensi komersial, aman dipakai untuk kebutuhan bisnis.'
+                ],
+                features: ['1000+ foto berkualitas tinggi', 'Resolusi tinggi', 'Lisensi komersial', 'Akses seumur hidup dan update gratis']
+            }
+        };
+
+        /* =========================================================
+           UTILITAS
+           ========================================================= */
+        const $ = (s, r) => (r || document).querySelector(s);
+        const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+        const rupiah = n => 'Rp ' + Number(n).toLocaleString('id-ID');
+
+        function loadList(key) {
+            try { const v = JSON.parse(localStorage.getItem(key)); return Array.isArray(v) ? v : []; }
+            catch (e) { return []; }
+        }
+        function saveList(key, list) {
+            try { localStorage.setItem(key, JSON.stringify(list)); } catch (e) {}
+        }
+        const has = (key, id) => loadList(key).includes(id);
+        function toggleIn(key, id) {
+            const list = loadList(key);
+            const i = list.indexOf(id);
+            if (i > -1) list.splice(i, 1); else list.push(id);
+            saveList(key, list);
+            return i === -1;
+        }
+
+        let toastTimer;
+        function toast(msg) {
+            const t = $('#pdToast');
+            t.textContent = msg;
+            t.classList.add('show');
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => t.classList.remove('show'), 2200);
+        }
+
+        /* =========================================================
+           NOMOR WHATSAPP (tombol CTA & tombol melayang)
+           ========================================================= */
+        function waLink(text) {
+            return 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(text);
+        }
+        document.querySelectorAll('[data-wa]').forEach(a => { a.href = waLink(a.dataset.wa); });
+
+        // Tombol "Pesan Sekarang" di kartu (tetap langsung ke WhatsApp)
+        function orderProduct(productName) {
+            window.open(waLink(`Halo Funcomida, saya ingin memesan produk: *${productName}*. Mohon info lebih lanjut ya. Terima kasih!`), '_blank');
+        }
+
+        /* =========================================================
+           TEMA GELAP / TERANG
+           ========================================================= */
+        function applyTheme(t, persist) {
+            document.documentElement.setAttribute('data-theme', t);
+            const meta = document.querySelector('meta[name="theme-color"]');
+            if (meta) meta.setAttribute('content', t === 'light' ? '#f5f3ff' : '#0f0a1a');
+            document.querySelectorAll('.theme-toggle').forEach(b => {
+                b.setAttribute('aria-label', t === 'light' ? 'Ganti ke tema gelap' : 'Ganti ke tema terang');
+            });
+            if (persist) { try { localStorage.setItem('fc_theme', t); } catch (e) {} }
+        }
+        applyTheme(document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark', false);
+        document.addEventListener('click', e => {
+            if (!e.target.closest('.theme-toggle')) return;
+            const cur = document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+            applyTheme(cur === 'light' ? 'dark' : 'light', true);
+        });
+
+        /* =========================================================
+           SUKA (hati di kartu & di detail)
+           ========================================================= */
+        function paintCardHeart(card) {
+            const btn = card.querySelector('.product-wishlist');
+            const icon = btn.querySelector('i');
+            const on = has('fc_liked', card.dataset.id);
+            icon.classList.toggle('fas', on);
+            icon.classList.toggle('far', !on);
+            btn.style.background = on ? 'var(--accent)' : 'rgba(0, 0, 0, 0.5)';
+            btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+            btn.setAttribute('aria-label', on ? 'Batal suka' : 'Suka');
+        }
+
+        function setLikeUI() {
+            const id = pdState.id;
+            if (!id) return;
+            const chip = $('#pdLike');
+            if (!chip) return;
+            const on = has('fc_liked', id);
+            chip.classList.toggle('on', on);
+            chip.setAttribute('aria-pressed', on ? 'true' : 'false');
+            chip.innerHTML = `<i class="${on ? 'fas' : 'far'} fa-heart"></i> ${on ? 'Disukai' : 'Suka'}`;
+        }
+
+        document.querySelectorAll('.product-card').forEach(card => {
+            paintCardHeart(card);
+            card.setAttribute('role', 'link');
+            card.setAttribute('tabindex', '0');
+            card.setAttribute('aria-label', 'Lihat detail ' + card.querySelector('.product-info h3').textContent.trim());
+            card.querySelector('.product-wishlist').setAttribute('role', 'button');
+            card.querySelector('.product-wishlist').setAttribute('tabindex', '0');
+        });
+
+        function likeFromCard(btn) {
+            const card = btn.closest('.product-card');
+            const nowOn = toggleIn('fc_liked', card.dataset.id);
+            paintCardHeart(card);
+            if (nowOn) {
+                btn.style.transform = 'scale(1.2)';
+                setTimeout(() => btn.style.transform = 'scale(1)', 200);
+            }
+            if (pdState.id === card.dataset.id) setLikeUI();
+        }
+
+        /* =========================================================
+           HALAMAN DETAIL PRODUK
+           ========================================================= */
+        const pdEl = $('#pd');
+        const pdState = { id: null, pushed: false, lastFocus: null };
+
+        function readProduct(card) {
+            const id = card.dataset.id;
+            const ex = PRODUCT_EXTRAS[id] || {};
+            const priceEl = card.querySelector('.product-price');
+            const oldEl = priceEl.querySelector('.original');
+            const toNum = s => parseInt(String(s).replace(/\D/g, ''), 10) || 0;
+            const rt = card.querySelector('.product-rating').textContent.match(/([\d.]+)\s*\((\d+)\)/) || [];
+            const ph = card.querySelector('.img-placeholder');
+            const icon = ph.querySelector('i');
+            const badge = card.querySelector('.product-badge');
+            return {
+                id,
+                name: card.querySelector('.product-info h3').textContent.trim(),
+                cat: card.querySelector('.product-category-tag').textContent.trim(),
+                shortDesc: card.querySelector('.product-info p').textContent.trim(),
+                price: toNum(priceEl.childNodes[0].textContent),
+                oldPrice: oldEl ? toNum(oldEl.textContent) : 0,
+                rating: rt[1] || '',
+                reviews: rt[2] || '',
+                badgeText: badge ? badge.textContent.trim() : '',
+                badgeClass: badge ? badge.className : '',
+                iconClass: icon ? icon.className : '',
+                iconColor: icon ? icon.style.color : '',
+                tileBg: getComputedStyle(ph).backgroundImage,
+                images: ex.images || [],
+                video: ex.video || '',
+                lykd: ex.lykd || '',
+                desc: ex.desc && ex.desc.length ? ex.desc : [card.querySelector('.product-info p').textContent.trim()],
+                features: ex.features || []
+            };
+        }
+
+        function videoMarkup(url) {
+            if (!url) {
+                return '<div class="pd-video empty"><i class="fas fa-circle-play"></i><span>Video preview segera hadir</span></div>';
+            }
+            const yt = url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([\w-]{11})/);
+            if (yt) {
+                return `<div class="pd-video"><iframe src="https://www.youtube.com/embed/${yt[1]}?rel=0" title="Video produk" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>`;
+            }
+            if (/\.(mp4|webm|ogg)(\?.*)?$/i.test(url)) {
+                return `<div class="pd-video"><video controls playsinline preload="metadata" src="${esc(url)}"></video></div>`;
+            }
+            return `<div class="pd-video"><iframe src="${esc(url)}" title="Video produk" loading="lazy" allowfullscreen></iframe></div>`;
+        }
+
+        function renderDetail(p) {
+            const hasImgs = p.images.length > 0;
+            const slides = hasImgs
+                ? p.images.map((src, i) => `<div class="pd-slide"><img src="${esc(src)}" alt="${esc(p.name)} - foto ${i + 1}" ${i ? 'loading="lazy"' : ''}></div>`).join('')
+                : `<div class="pd-slide" style="background:${esc(p.tileBg)}"><i class="${esc(p.iconClass)}" style="color:${esc(p.iconColor)}"></i></div>`;
+            const dots = p.images.length > 1
+                ? `<div class="pd-dots">${p.images.map((_, i) => `<button type="button" class="pd-dot${i ? '' : ' on'}" data-i="${i}" aria-label="Foto ${i + 1}"></button>`).join('')}</div>`
+                : '';
+            const badge = p.badgeText ? `<span class="${esc(p.badgeClass)}">${esc(p.badgeText)}</span>` : '';
+            const disc = p.oldPrice > p.price ? Math.round((1 - p.price / p.oldPrice) * 100) : 0;
+            const rating = p.rating ? `<div class="pd-rating"><i class="fas fa-star"></i> ${esc(p.rating)} <span>(${esc(p.reviews)} ulasan)</span></div>` : '';
+            const saved = has('fc_saved', p.id);
+            const feats = p.features.length
+                ? `<section class="pd-sec pd-feats-sec"><h3><i class="fas fa-circle-check"></i> Keunggulan</h3><ul class="pd-feats">${p.features.map(f => `<li><i class="fas fa-check"></i><span>${esc(f)}</span></li>`).join('')}</ul></section>`
+                : '';
+
+            pdEl.innerHTML = `
+                <div class="pd-top">
+                    <button type="button" class="icon-btn" id="pdBack" aria-label="Kembali"><i class="fas fa-arrow-left"></i></button>
+                    <h2 id="pdHeading">Detail Produk</h2>
+                    <button class="icon-btn theme-toggle" type="button" aria-label="Ganti tema"><i class="fas fa-sun i-sun"></i><i class="fas fa-moon i-moon"></i></button>
+                </div>
+                <div class="pd-wrap">
+                    <div class="pd-grid">
+                        <div class="pd-left">
+                            <div class="pd-media">
+                                <div class="pd-slides" id="pdSlides">${slides}</div>
+                                ${badge}${dots}
+                            </div>
+                            <section class="pd-sec pd-videosec"><h3><i class="fas fa-circle-play"></i> Video</h3>${videoMarkup(p.video)}</section>
+                        </div>
+                        <div class="pd-right">
+                            <div class="pd-info">
+                                <div class="pd-cat">${esc(p.cat)}</div>
+                                <h1 class="pd-title">${esc(p.name)}</h1>
+                                ${rating}
+                                <div class="pd-price-row">
+                                    <span class="pd-price">${rupiah(p.price)}</span>
+                                    ${p.oldPrice > p.price ? `<span class="pd-old">${rupiah(p.oldPrice)}</span>` : ''}
+                                    ${disc ? `<span class="pd-save">Hemat ${disc}%</span>` : ''}
+                                </div>
+                                <div class="pd-actions">
+                                    <button type="button" class="pd-chip like" id="pdLike"></button>
+                                    <button type="button" class="pd-chip save${saved ? ' on' : ''}" id="pdSave" aria-pressed="${saved}"><i class="${saved ? 'fas' : 'far'} fa-bookmark"></i> ${saved ? 'Tersimpan' : 'Simpan'}</button>
+                                </div>
+                            </div>
+                            <section class="pd-sec pd-desc"><h3><i class="fas fa-align-left"></i> Deskripsi</h3>${p.desc.map(t => `<p>${esc(t)}</p>`).join('')}</section>
+                            ${feats}
+                        </div>
+                    </div>
+                </div>
+                <div class="pd-buy">
+                    <div class="pd-buy-in">
+                        <a class="pd-btn wa" id="pdWa" href="${waLink(`Halo Funcomida, saya ingin membeli produk: *${p.name}* (${rupiah(p.price)}). Mohon info lebih lanjut ya. Terima kasih!`)}" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Beli Langsung</a>
+                        <a class="pd-btn lykd" id="pdLykd" href="${esc(p.lykd || LYKD_STORE_URL || '#')}" target="_blank" rel="noopener"><i class="fas fa-bag-shopping"></i> Beli via Lykd</a>
+                    </div>
+                </div>`;
+
+            pdEl.dataset.hasLykd = (p.lykd || LYKD_STORE_URL) ? '1' : '';
+            setLikeUI();
+            applyTheme(document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark', false);
+        }
+
+        function openDetail(id, fromClick) {
+            const card = document.querySelector('.product-card[data-id="' + id + '"]');
+            if (!card) return;
+            pdState.id = id;
+            pdState.lastFocus = document.activeElement;
+            renderDetail(readProduct(card));
+            pdEl.scrollTop = 0;
+            pdEl.setAttribute('aria-hidden', 'false');
+            pdEl.classList.add('open');
+            document.body.style.overflow = 'hidden';
+            if (fromClick) {
+                pdState.pushed = true;
+                location.hash = 'produk-' + id;
+            }
+            const back = $('#pdBack');
+            if (back) back.focus({ preventScroll: true });
+        }
+
+        function hideDetail() {
+            if (!pdEl.classList.contains('open')) return;
+            pdEl.classList.remove('open');
+            pdEl.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+            pdState.id = null;
+            // kosongkan isi setelah animasi (menghentikan video yang sedang diputar)
+            setTimeout(() => { if (!pdEl.classList.contains('open')) pdEl.innerHTML = ''; }, 350);
+            if (pdState.lastFocus && pdState.lastFocus.focus) pdState.lastFocus.focus({ preventScroll: true });
+        }
+
+        function closeDetail() {
+            if (pdState.pushed) {
+                pdState.pushed = false;
+                history.back();               // hashchange akan menutup detail
+            } else {
+                history.replaceState(null, '', location.pathname + location.search);
+                hideDetail();
+            }
+        }
+
+        function syncWithHash() {
+            const m = location.hash.match(/^#produk-([\w-]+)$/);
+            if (m) {
+                if (pdState.id !== m[1]) openDetail(m[1], false);
+            } else {
+                hideDetail();
+            }
+        }
+        window.addEventListener('hashchange', syncWithHash);
+        window.addEventListener('load', syncWithHash);
+
+        // klik kartu / hati / tombol pesan
+        document.addEventListener('click', e => {
+            const heart = e.target.closest('.product-wishlist');
+            if (heart) { e.stopPropagation(); likeFromCard(heart); return; }
+            if (e.target.closest('.product-buy-btn')) return;
+            const card = e.target.closest('.product-card');
+            if (card) openDetail(card.dataset.id, true);
+        });
+
+        document.addEventListener('keydown', e => {
+            const heart = e.target.closest && e.target.closest('.product-wishlist');
+            if (heart && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); likeFromCard(heart); return; }
+            const card = e.target.classList && e.target.classList.contains('product-card') ? e.target : null;
+            if (card && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); openDetail(card.dataset.id, true); return; }
+            if (e.key === 'Escape' && pdEl.classList.contains('open')) closeDetail();
+        });
+
+        // isi halaman detail: tombol kembali, suka, simpan, titik foto, tombol Lykd
+        pdEl.addEventListener('click', e => {
+            if (e.target.closest('#pdBack')) { closeDetail(); return; }
+            if (e.target.closest('#pdLike')) {
+                const on = toggleIn('fc_liked', pdState.id);
+                setLikeUI();
+                const card = document.querySelector('.product-card[data-id="' + pdState.id + '"]');
+                if (card) paintCardHeart(card);
+                toast(on ? 'Ditambahkan ke produk yang kamu sukai' : 'Dihapus dari produk yang kamu sukai');
+                return;
+            }
+            if (e.target.closest('#pdSave')) {
+                const on = toggleIn('fc_saved', pdState.id);
+                const b = $('#pdSave');
+                b.classList.toggle('on', on);
+                b.setAttribute('aria-pressed', on ? 'true' : 'false');
+                b.innerHTML = `<i class="${on ? 'fas' : 'far'} fa-bookmark"></i> ${on ? 'Tersimpan' : 'Simpan'}`;
+                toast(on ? 'Produk disimpan' : 'Produk dihapus dari simpanan');
+                return;
+            }
+            const dot = e.target.closest('.pd-dot');
+            if (dot) {
+                const s = $('#pdSlides');
+                s.scrollTo({ left: s.clientWidth * Number(dot.dataset.i), behavior: 'smooth' });
+                return;
+            }
+            if (e.target.closest('#pdLykd') && !pdEl.dataset.hasLykd) {
+                e.preventDefault();
+                toast('Link Lykd untuk produk ini belum tersedia');
+            }
+        });
+
+        // titik foto ikut bergeser saat foto digeser
+        pdEl.addEventListener('scroll', e => {
+            const s = e.target;
+            if (!s.classList || !s.classList.contains('pd-slides')) return;
+            const i = Math.round(s.scrollLeft / s.clientWidth);
+            pdEl.querySelectorAll('.pd-dot').forEach((d, n) => d.classList.toggle('on', n === i));
+        }, true);
     </script>
 </body>
 </html>
