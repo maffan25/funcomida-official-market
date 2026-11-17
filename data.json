@@ -36,6 +36,11 @@
    "icon": "📱"
   },
   {
+   "id": "website",
+   "name": "Website",
+   "icon": "🌐"
+  },
+  {
    "id": "template",
    "name": "Template",
    "icon": "🎨"
@@ -72,6 +77,129 @@
   }
  ],
  "PRODUCTS": [
+  {
+   "id": "beresin",
+   "name": "Beresin",
+   "cat": "aplikasi",
+   "emoji": "🗂️",
+   "color": "#D9E4FF",
+   "badge": "Terlaris",
+   "price": 49000,
+   "oldPrice": 79000,
+   "deal": true,
+   "rating": 5,
+   "reviews": 0,
+   "likes": 0,
+   "image": "",
+   "gallery": [],
+   "video": "",
+   "short": "Inbox terpadu untuk merapikan kegiatan dan notifikasi.",
+   "desc": "Beresin mengumpulkan notifikasi dan kegiatanmu dalam satu inbox bergaya Gmail, lengkap dengan status kegiatan agar harimu lebih teratur.",
+   "features": [
+    "Inbox terpadu",
+    "Status kegiatan",
+    "Tampilan bersih ala Gmail",
+    "Update gratis"
+   ],
+   "badges": [
+    [
+     "⚡",
+     "Instan"
+    ],
+    [
+     "🔒",
+     "Aman"
+    ],
+    [
+     "♾️",
+     "Seumur Hidup"
+    ]
+   ],
+   "buyUrl": "https://wa.me/6281234567890?text=Halo,%20saya%20mau%20beli%20Beresin",
+   "lykdUrl": "https://lykd.id/funcomida"
+  },
+  {
+   "id": "maktabah-learn",
+   "name": "Maktabah Learn",
+   "cat": "website",
+   "emoji": "📚",
+   "color": "#FFE9B8",
+   "badge": "Baru",
+   "price": 99000,
+   "oldPrice": 0,
+   "deal": false,
+   "rating": 5,
+   "reviews": 0,
+   "likes": 0,
+   "image": "",
+   "gallery": [],
+   "video": "",
+   "short": "Perpustakaan PDF Arab, catatan, kuis, dan AI tutor.",
+   "desc": "Website belajar pribadi: simpan kitab PDF Arab, buat catatan, latihan kuis, dan tanya AI tutor dalam satu tempat.",
+   "features": [
+    "Perpustakaan PDF Arab",
+    "Catatan & kuis",
+    "AI tutor",
+    "Sinkron di semua perangkat"
+   ],
+   "badges": [
+    [
+     "⚡",
+     "Instan"
+    ],
+    [
+     "🔒",
+     "Aman"
+    ],
+    [
+     "♾️",
+     "Seumur Hidup"
+    ]
+   ],
+   "buyUrl": "https://wa.me/6281234567890?text=Halo,%20saya%20mau%20beli%20Maktabah%20Learn",
+   "lykdUrl": ""
+  },
+  {
+   "id": "tafsir-quran",
+   "name": "Web Tafsir Quran",
+   "cat": "website",
+   "emoji": "🌙",
+   "color": "#D6F5E6",
+   "badge": "",
+   "price": 59000,
+   "oldPrice": 75000,
+   "deal": true,
+   "rating": 5,
+   "reviews": 0,
+   "likes": 0,
+   "image": "",
+   "gallery": [],
+   "video": "",
+   "short": "Tafsir, kalender Hijriyah, jadwal puasa dan sholat.",
+   "desc": "Baca tafsir dengan tampilan modern, dilengkapi kalender Hijriyah/Masehi, jadwal puasa sunnah, dan jadwal sholat.",
+   "features": [
+    "Kalender Hijriyah & Masehi",
+    "Jadwal puasa sunnah",
+    "Jadwal sholat",
+    "Tampilan modern"
+   ],
+   "badges": [
+    [
+     "⚡",
+     "Instan"
+    ],
+    [
+     "🔒",
+     "Aman"
+    ],
+    [
+     "♾️",
+     "Seumur Hidup"
+    ]
+   ],
+   "buyUrl": "https://wa.me/6281234567890?text=Halo,%20saya%20mau%20beli%20Web%20Tafsir",
+   "lykdUrl": "https://lykd.id/funcomida"
+  },
   {
    "id": "funcomida-pro",
    "name": "Funcomida Pro App",
@@ -307,5 +435,18 @@
    "buyUrl": "https://example.com/beli",
    "lykdUrl": "https://lykd.com/funcomida/bundle"
   }
- ]
+ ],
+ "SITE": {
+  "announce": "Diskon launching sampai akhir bulan. Kode: FUNLAUNCH",
+  "heroTitle": "Produk digital buatan sendiri, siap dipakai hari ini",
+  "heroText": "Aplikasi, website, template, e-book, dan preset dari Funcomida. Bayar sekali, langsung dapat akses.",
+  "cta": "Lihat semua produk",
+  "ticker": "Akses instan\nUpdate gratis\nSupport via WhatsApp\nBayar sekali, pakai terus",
+  "colors": {
+   "pri": "#6C4DFF",
+   "acc": "#FFE14D",
+   "bg": "#F1EEFF",
+   "ink": "#1B1464"
+  }
+ }
 }

@@ -5,15 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
 <title>Admin — Funcomida Official Store</title>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--cream:#FBF4E8;--card:#FFFBF3;--line:#EADFCB;--green:#1F4D2E;--orange:#E8650F;--ink:#1E2A22;--mute:#7B7768}
+:root{--cream:#F1EEFF;--card:#fff;--line:#CFC7F7;--green:#1B1464;--orange:#6C4DFF;--ink:#1B1464;--mute:#5b5a86}
 *{box-sizing:border-box;margin:0}
-body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:#efe6d4;color:var(--ink);font-size:15px}
+body{font-family:Figtree,system-ui,sans-serif;background:#E4DEFF;color:var(--ink);font-size:15px}
 button,input,select,textarea{font:inherit;color:inherit}button{cursor:pointer;border:0}
 .wrap{max-width:760px;margin:0 auto;background:var(--cream);min-height:100vh;padding-bottom:90px}
 @media(min-width:800px){.wrap{margin:20px auto;border-radius:28px;min-height:auto}}
-.top{display:flex;justify-content:space-between;align-items:center;padding:18px 20px;position:sticky;top:0;background:rgba(251,244,232,.95);backdrop-filter:blur(8px);z-index:10;border-radius:28px 28px 0 0}
+.top{display:flex;justify-content:space-between;align-items:center;padding:18px 20px;position:sticky;top:0;background:rgba(241,238,255,.95);backdrop-filter:blur(8px);z-index:10;border-radius:28px 28px 0 0}
 .top h1{font-size:18px;color:var(--green);font-weight:800}.top a{color:var(--orange);font-weight:700;font-size:13px;text-decoration:none}
 .tabs{display:flex;gap:8px;padding:0 20px 14px;overflow-x:auto}
 .tab{padding:9px 16px;border-radius:999px;background:var(--card);border:1px solid var(--line);font-weight:700;font-size:13px;white-space:nowrap}
@@ -38,9 +38,9 @@ textarea{min-height:90px;resize:vertical}
 .imgs{display:flex;gap:10px;flex-wrap:wrap}.im{position:relative;width:86px}.im img{width:86px;height:86px;object-fit:cover;border-radius:12px;border:2px solid var(--line);display:block}
 .im.main img{border-color:var(--orange)}.im button{font-size:11px;font-weight:700;width:100%;margin-top:4px;padding:4px;border-radius:8px;background:var(--card);border:1px solid var(--line)}
 .im .x{position:absolute;top:-6px;right:-6px;width:24px;height:24px;border-radius:50%;background:#b42318;color:#fff;padding:0;margin:0;border:2px solid #fff}
-.hint{background:#E6EEDC;color:var(--green);border-radius:14px;padding:12px 14px;font-size:13px;line-height:1.55;margin-bottom:14px}
+.hint{background:#FFF3B0;color:var(--green);border-radius:14px;padding:12px 14px;font-size:13px;line-height:1.55;margin-bottom:14px}
 .hint ol{padding-left:18px}
-.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:center;padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px));background:linear-gradient(transparent,#efe6d4 40%);z-index:20}
+.bar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:center;padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px));background:linear-gradient(transparent,#E4DEFF 40%);z-index:20}
 .bar div{display:flex;gap:10px;width:100%;max-width:720px}.bar .btn{flex:1;padding:14px;box-shadow:0 8px 22px rgba(31,77,46,.2)}
 .toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);background:var(--green);color:#fff;padding:12px 18px;border-radius:14px;font-weight:700;z-index:50;max-width:90%;text-align:center;display:none}
 .toast.err{background:#b42318}
@@ -61,6 +61,8 @@ const $=s=>document.querySelector(s);
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const LS=(k,v)=>{try{if(v===undefined)return localStorage.getItem(k);v===null?localStorage.removeItem(k):localStorage.setItem(k,v)}catch(e){}};
 let D=null,tab='produk',ed=null;
+const SITE0={announce:'',heroTitle:'Produk digital buatan sendiri, siap dipakai hari ini',heroText:'',cta:'Lihat semua produk',ticker:'Akses instan\nUpdate gratis',colors:{pri:'#6C4DFF',acc:'#FFE14D',bg:'#F1EEFF',ink:'#1B1464'}};
+const THEMES=[['Violet',{pri:'#6C4DFF',acc:'#FFE14D',bg:'#F1EEFF',ink:'#1B1464'}],['Mint',{pri:'#0E9F6E',acc:'#FFD84D',bg:'#E8FBF2',ink:'#0B3B2C'}],['Jeruk',{pri:'#FF5A1F',acc:'#FFD84D',bg:'#FFF1E6',ink:'#3A1406'}],['Permen',{pri:'#E0368A',acc:'#7CF2D0',bg:'#FFEAF4',ink:'#40082A'}]];
 const toast=(m,err)=>{const t=$('#toast');t.textContent=m;t.className='toast'+(err?' err':'');t.style.display='block';clearTimeout(toast.t);toast.t=setTimeout(()=>t.style.display='none',3200)};
 const save=()=>LS('fc_draft',JSON.stringify(D));
 
@@ -68,18 +70,19 @@ async function init(){
   let draft=LS('fc_draft');
   if(draft){try{D=JSON.parse(draft)}catch(e){}}
   if(!D){try{D=await (await fetch('data.json?'+Date.now())).json()}catch(e){D={STORE:{name:'Funcomida Official Store',bio:'',followers:'0',sold:'0',rating:'5.0',whatsapp:'',socials:[]},CATEGORIES:[],PRODUCTS:[]};toast('data.json belum ditemukan, mulai dari kosong',1)}}
+  D.SITE={...SITE0,...D.SITE,colors:{...SITE0.colors,...(D.SITE||{}).colors}};
   render();
 }
 function render(){
-  $('#tabs').innerHTML=[['produk','📦 Produk'],['kategori','🗂️ Kategori'],['toko','🏪 Info Toko'],['publish','🚀 Publish']].map(t=>`<button class="tab ${tab===t[0]?'on':''}" data-tab="${t[0]}">${t[1]}</button>`).join('');
-  $('#main').innerHTML=tab==='produk'?(ed!==null?editForm():list()):tab==='kategori'?cats():tab==='toko'?shop():pubTab();
+  $('#tabs').innerHTML=[['produk','📦 Produk'],['kategori','🗂️ Kategori'],['toko','🏪 Info Toko'],['tampilan','🎨 Tampilan'],['publish','🚀 Publish']].map(t=>`<button class="tab ${tab===t[0]?'on':''}" data-tab="${t[0]}">${t[1]}</button>`).join('');
+  $('#main').innerHTML=tab==='produk'?(ed!==null?editForm():list()):tab==='kategori'?cats():tab==='toko'?shop():tab==='tampilan'?look():pubTab();
   window.scrollTo(0,0);
 }
 const rp=n=>'Rp'+Number(n||0).toLocaleString('id-ID');
 const thumb=p=>p.image?`<img src="${esc(p.image)}" alt="">`:esc(p.emoji||'🛍️');
 
 function list(){return `<button class="btn full" style="width:100%;margin-bottom:14px" data-a="new">➕ Tambah Produk Baru</button>`+
- (D.PRODUCTS.length?D.PRODUCTS.map((p,i)=>`<div class="card"><div class="row"><div class="th" style="background:${esc(p.color||'#E6EEDC')}">${thumb(p)}</div>
+ (D.PRODUCTS.length?D.PRODUCTS.map((p,i)=>`<div class="card"><div class="row"><div class="th" style="background:${esc(p.color||'#FFF3B0')}">${thumb(p)}</div>
  <div class="grow"><b>${esc(p.name)}</b><small>${rp(p.price)}${p.oldPrice?` · <s>${rp(p.oldPrice)}</s>`:''}${p.deal?' · 🔥 Promo':''}</small></div></div>
  <div class="acts"><button class="btn s g" data-a="edit" data-i="${i}">✏️ Edit</button><button class="btn s o" data-a="dup" data-i="${i}">📄 Gandakan</button>
  <button class="btn s o" data-a="up" data-i="${i}">⬆️</button><button class="btn s o" data-a="down" data-i="${i}">⬇️</button><button class="btn s r" data-a="del" data-i="${i}">🗑️ Hapus</button></div></div>`).join(''):'<div class="card">Belum ada produk. Ketuk “Tambah Produk Baru”.</div>');}
@@ -90,6 +93,7 @@ const F=(k,l,o={})=>{const p=D.PRODUCTS[ed];const v=o.t==='l'?(p[k]||[]).join('\
 function editForm(){const p=D.PRODUCTS[ed];const im=[p.image,...(p.gallery||[])].filter(Boolean);
  return `<button class="btn s o" data-a="back">← Kembali ke daftar</button><h2 style="margin-top:14px">${p.name?esc(p.name):'Produk Baru'}</h2>
  ${F('name','Nama produk',{ph:'Contoh: Funcomida Pro App'})}
+ ${F('badge','Label di kartu',{ph:'Terlaris / Baru',sm:'(opsional)'})}
  <label>Kategori</label><select data-k="cat">${D.CATEGORIES.map(c=>`<option value="${esc(c.id)}" ${c.id===p.cat?'selected':''}>${esc(c.icon)} ${esc(c.name)}</option>`).join('')}</select>
  <div class="two"><div>${F('price','Harga (Rp)',{type:'number',t:'n'})}</div><div>${F('oldPrice','Harga coret',{type:'number',t:'n',sm:'(isi untuk promo)'})}</div></div>
  <label class="chk"><input type="checkbox" data-k="deal" ${p.deal?'checked':''}> Tampilkan di “Promo Hari Ini”</label>
@@ -103,7 +107,7 @@ function editForm(){const p=D.PRODUCTS[ed];const im=[p.image,...(p.gallery||[])]
  ${F('features','Keunggulan',{area:1,t:'l',sm:'(satu baris = satu poin)',ph:'Akses seumur hidup\nUpdate gratis'})}
  ${F('badges','3 Badge kecil',{area:1,t:'b',sm:'(emoji lalu teks, satu baris satu badge)',ph:'⚡ Instan\n🔒 Aman\n♾️ Seumur Hidup'})}
  ${F('buyUrl','Link beli langsung',{ph:'https://…'})}${F('lykdUrl','Link beli via Lykd',{ph:'https://lykd.com/…'})}
- <div class="two"><div>${F('emoji','Emoji (jika tanpa foto)')}</div><div><label>Warna latar</label><input type="color" data-k="color" value="${esc(p.color||'#E6EEDC')}"></div></div>
+ <div class="two"><div>${F('emoji','Emoji (jika tanpa foto)')}</div><div><label>Warna latar</label><input type="color" data-k="color" value="${esc(p.color||'#FFF3B0')}"></div></div>
  <div class="two"><div>${F('rating','Rating (0-5)',{type:'number',t:'f'})}</div><div>${F('reviews','Jumlah ulasan',{type:'number',t:'n'})}</div></div>
  ${F('likes','Jumlah suka awal',{type:'number',t:'n'})}
  <div style="height:20px"></div>`}
@@ -114,6 +118,11 @@ function shop(){const s=D.STORE;const f=(k,l,t)=>`<label>${l}</label><input data
  <div class="two"><div>${f('followers','Pengikut')}</div><div>${f('sold','Terjual')}</div></div>${f('rating','Rating toko')}${f('whatsapp','Nomor WhatsApp <small>(format 628xxx)</small>')}
  <label>Tautan sosial media</label>`+s.socials.map((x,i)=>`<div class="card"><div class="two"><input data-so="${i}" data-f="icon" value="${esc(x.icon)}" placeholder="Emoji"><input data-so="${i}" data-f="label" value="${esc(x.label)}" placeholder="Nama"></div><input style="margin-top:10px" data-so="${i}" data-f="url" value="${esc(x.url)}" placeholder="https://…"><button class="btn s r" style="margin-top:10px" data-a="delso" data-i="${i}">Hapus</button></div>`).join('')+`<button class="btn o" data-a="newso">➕ Tambah tautan</button>`}
 
+function look(){const s=D.SITE,c=s.colors;const f=(k,l,t)=>`<label>${l}</label>${t?`<textarea data-st="${k}">${esc(s[k])}</textarea>`:`<input data-st="${k}" value="${esc(s[k])}">`}`;
+ return `<h2>Tampilan Website</h2>${f('announce','Pengumuman paling atas <small>(kosongkan untuk menyembunyikan)</small>')}${f('heroTitle','Judul besar beranda',1)}${f('heroText','Kalimat di bawah judul',1)}${f('cta','Teks tombol utama')}${f('ticker','Teks berjalan <small>(satu baris = satu kalimat)</small>',1)}
+ <label>Tema warna siap pakai</label><div class="acts">${THEMES.map((t,i)=>`<button class="btn s o" data-a="theme" data-i="${i}">${t[0]}</button>`).join('')}</div>
+ <div class="two">${[['pri','Warna utama'],['acc','Warna sorot'],['bg','Warna latar'],['ink','Warna teks & garis']].map(x=>`<div><label>${x[1]}</label><input type="color" data-sc="${x[0]}" value="${esc(c[x[0]])}"></div>`).join('')}</div>
+ <p style="color:var(--mute);font-size:12.5px;margin-top:14px;line-height:1.5">3 produk teratas di daftar Produk tampil sebagai kartu besar di beranda. Ubah urutannya dengan tombol ⬆️ ⬇️.</p>`}
 function pubTab(){const g=JSON.parse(LS('fc_gh')||'{}');const f=(k,l,ph,t)=>`<label>${l}</label><input data-g="${k}" value="${esc(g[k]||'')}" placeholder="${esc(ph)}" ${t||''}>`;
  return `<h2>Publish</h2><div class="hint"><b>Setup sekali saja</b> (minta pemilik toko):<ol><li>Buka GitHub → Settings → Developer settings → Personal access tokens → <b>Fine-grained tokens</b> → Generate.</li><li>Pilih repo toko saja, beri izin <b>Contents: Read and write</b>.</li><li>Salin token, tempel di bawah. Selesai.</li></ol>Setelah itu tombol <b>🚀 Publish</b> otomatis memperbarui website (Vercel selesai ±1 menit).</div>
  ${f('o','Username GitHub','contoh: funcomida')}${f('r','Nama repository','contoh: funcomida-store')}${f('b','Branch','main')}${f('t','Token GitHub','github_pat_…','type="password"')}
@@ -132,6 +141,8 @@ document.addEventListener('input',e=>{const t=e.target;
  else if(t.dataset.c!==undefined)D.CATEGORIES[t.dataset.c][t.dataset.f]=t.value;
  else if(t.dataset.s)D.STORE[t.dataset.s]=t.value;
  else if(t.dataset.so!==undefined)D.STORE.socials[t.dataset.so][t.dataset.f]=t.value;
+ else if(t.dataset.st)D.SITE[t.dataset.st]=t.value;
+ else if(t.dataset.sc)D.SITE.colors[t.dataset.sc]=t.value;
  else if(t.dataset.g){const g=JSON.parse(LS('fc_gh')||'{}');g[t.dataset.g]=t.value.trim();LS('fc_gh',JSON.stringify(g));return}
  save()});
 document.addEventListener('change',async e=>{if(e.target.id==='file'&&ed!==null){const p=D.PRODUCTS[ed],a=allImgs(p);toast('Memproses foto…');
@@ -142,7 +153,7 @@ document.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.dataset.k==
 document.addEventListener('click',async e=>{
  const tb=e.target.closest('[data-tab]');if(tb){tab=tb.dataset.tab;ed=null;render();return}
  const b=e.target.closest('[data-a]');if(!b)return;const a=b.dataset.a,i=+b.dataset.i,P=D.PRODUCTS;
- if(a==='new'){P.unshift({id:'p'+Date.now().toString(36),name:'',cat:D.CATEGORIES[0]?.id||'',emoji:'🛍️',color:'#E6EEDC',price:0,oldPrice:0,deal:false,rating:5,reviews:0,likes:0,image:'',gallery:[],video:'',short:'',desc:'',features:[],badges:[['⚡','Instan'],['🔒','Aman'],['♾️','Seumur Hidup']],buyUrl:'',lykdUrl:''});ed=0;render()}
+ if(a==='new'){P.unshift({id:'p'+Date.now().toString(36),name:'',cat:D.CATEGORIES[0]?.id||'',emoji:'🛍️',color:'#FFF3B0',price:0,oldPrice:0,deal:false,rating:5,reviews:0,likes:0,image:'',gallery:[],video:'',short:'',desc:'',features:[],badges:[['⚡','Instan'],['🔒','Aman'],['♾️','Seumur Hidup']],buyUrl:'',lykdUrl:''});ed=0;render()}
  else if(a==='edit'){ed=i;render()}
  else if(a==='back'){ed=null;render()}
  else if(a==='dup'){P.splice(i+1,0,{...JSON.parse(JSON.stringify(P[i])),id:'p'+Date.now().toString(36),name:P[i].name+' (salinan)'});save();render();toast('Produk digandakan')}
@@ -155,6 +166,7 @@ document.addEventListener('click',async e=>{
  else if(a==='delcat'){if(confirm('Hapus kategori ini?')){D.CATEGORIES.splice(i,1);save();render()}}
  else if(a==='newso'){D.STORE.socials.push({label:'',icon:'🔗',url:''});save();render()}
  else if(a==='delso'){D.STORE.socials.splice(i,1);save();render()}
+ else if(a==='theme'){D.SITE.colors={...THEMES[i][1]};save();render();toast('Tema diganti')}
  else if(a==='dl'){const l=document.createElement('a');l.href=URL.createObjectURL(new Blob([JSON.stringify(D,null,1)],{type:'application/json'}));l.download='data.json';l.click()}
  else if(a==='reset'){if(confirm('Buang semua perubahan yang belum dipublish?')){LS('fc_draft',null);D=null;init()}}
 });
