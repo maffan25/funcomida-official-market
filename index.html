@@ -1,700 +1,450 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex,nofollow">
-<title>Admin — Funcomida Official Store</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
-<style>
-:root{
-  --bg:#0B0A1A;
-  --bg-soft:#13112A;
-  --surface:#1A1735;
-  --surface-2:#221E42;
-  --border:rgba(255,255,255,.08);
-  --border-strong:rgba(255,255,255,.14);
-  --pri:#8B5CF6;
-  --pri-glow:rgba(139,92,246,.35);
-  --pri-soft:rgba(139,92,246,.12);
-  --acc:#22D3EE;
-  --acc-2:#FBBF24;
-  --ink:#F5F3FF;
-  --mute:#A5A0C9;
-  --mute-2:#6E6A94;
-  --danger:#F87171;
-  --danger-bg:rgba(248,113,113,.12);
-  --success:#34D399;
-  --radius:18px;
-  --radius-sm:12px;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%}
-body{
-  font-family:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;
-  background:var(--bg);
-  color:var(--ink);
-  font-size:15px;
-  line-height:1.55;
-  -webkit-font-smoothing:antialiased;
-  position:relative;
-  overflow-x:hidden;
-}
-/* ambient glow background */
-body::before{
-  content:'';position:fixed;inset:0;z-index:-2;
-  background:
-    radial-gradient(ellipse 60% 40% at 15% 0%, rgba(139,92,246,.18), transparent 60%),
-    radial-gradient(ellipse 50% 35% at 85% 100%, rgba(34,211,238,.10), transparent 60%),
-    radial-gradient(ellipse 40% 30% at 50% 50%, rgba(251,191,36,.04), transparent 70%);
-  pointer-events:none;
-}
-body::after{
-  content:'';position:fixed;inset:0;z-index:-1;opacity:.35;
-  background-image:
-    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
-  background-size:44px 44px;
-  mask-image:radial-gradient(ellipse 80% 70% at 50% 40%, #000 30%, transparent 90%);
-  pointer-events:none;
-}
-button,input,select,textarea{font:inherit;color:inherit}
-button{cursor:pointer;border:0;background:none}
-a{color:inherit;text-decoration:none}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funcomida Official Store - Digital Products Marketplace</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/plus-jakarta-sans@5.0.3/index.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/space-grotesk@5.0.3/index.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-/* layout */
-.wrap{max-width:820px;margin:0 auto;min-height:100vh;padding-bottom:110px;position:relative}
-@media(min-width:860px){.wrap{margin:24px auto;min-height:auto;border:1px solid var(--border);border-radius:28px;background:rgba(19,17,42,.55);backdrop-filter:blur(20px);overflow:hidden;box-shadow:0 40px 120px -20px rgba(0,0,0,.6)}}
+        :root {
+            --primary: #7c3aed;
+            --primary-light: #a78bfa;
+            --secondary: #06b6d4;
+            --accent: #f43f5e;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --gradient-1: linear-gradient(135deg, #7c3aed, #06b6d4);
+            --gradient-2: linear-gradient(135deg, #f43f5e, #7c3aed);
+            --gradient-3: linear-gradient(135deg, #06b6d4, #10b981);
+            --transition: all 0.3s ease;
+        }
 
-/* top bar */
-.top{
-  display:flex;justify-content:space-between;align-items:center;
-  padding:20px 22px 16px;position:sticky;top:0;z-index:20;
-  background:linear-gradient(180deg, var(--bg) 30%, rgba(11,10,26,.85) 80%, transparent);
-  backdrop-filter:blur(12px);
-}
-@media(min-width:860px){.top{border-radius:28px 28px 0 0;background:linear-gradient(180deg, rgba(19,17,42,.9), rgba(19,17,42,.6));}}
-.top h1{font-size:17px;font-weight:800;display:flex;align-items:center;gap:9px;letter-spacing:-.02em}
-.top h1 .logo-dot{
-  width:30px;height:30px;border-radius:9px;display:grid;place-items:center;
-  background:linear-gradient(135deg,var(--pri),var(--acc));
-  box-shadow:0 6px 20px -4px var(--pri-glow), inset 0 1px 0 rgba(255,255,255,.25);
-  font-size:15px;
-}
-.top a{
-  font-size:12.5px;font-weight:600;color:var(--mute);
-  display:inline-flex;align-items:center;gap:5px;
-  padding:8px 13px;border-radius:10px;
-  background:var(--surface);border:1px solid var(--border);
-  transition:.2s;
-}
-.top a:hover{color:var(--ink);border-color:var(--border-strong);background:var(--surface-2);transform:translateY(-1px)}
+        /* Dark Theme (Default) */
+        [data-theme="dark"] {
+            --bg-primary: #0f0a1a;
+            --bg-secondary: #1a1128;
+            --bg-surface: #241833;
+            --bg-card: #1a1128;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --text-tertiary: #64748b;
+            --border: rgba(255, 255, 255, 0.1);
+            --glass: rgba(255, 255, 255, 0.05);
+            --glass-strong: rgba(255, 255, 255, 0.08);
+            --shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            --shadow-hover: 0 25px 50px rgba(124, 58, 237, 0.15);
+            --orb-opacity: 0.3;
+        }
 
-/* tabs */
-.tabs{
-  display:flex;gap:6px;padding:0 22px 14px;overflow-x:auto;scrollbar-width:none;
-}
-.tabs::-webkit-scrollbar{display:none}
-.tab{
-  padding:9px 15px;border-radius:11px;
-  background:transparent;border:1px solid transparent;
-  font-weight:600;font-size:13px;white-space:nowrap;color:var(--mute);
-  transition:.2s;display:inline-flex;align-items:center;gap:6px;
-}
-.tab:hover{color:var(--ink);background:var(--surface)}
-.tab.on{
-  background:linear-gradient(135deg, rgba(139,92,246,.9), rgba(139,92,246,.7));
-  color:#fff;border-color:rgba(139,92,246,.5);
-  box-shadow:0 8px 24px -8px var(--pri-glow), inset 0 1px 0 rgba(255,255,255,.2);
-}
+        /* Light Theme */
+        [data-theme="light"] {
+            --bg-primary: #f8f9fc;
+            --bg-secondary: #ffffff;
+            --bg-surface: #f1f5f9;
+            --bg-card: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-tertiary: #94a3b8;
+            --border: rgba(15, 23, 42, 0.08);
+            --glass: rgba(255, 255, 255, 0.7);
+            --glass-strong: rgba(255, 255, 255, 0.9);
+            --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+            --shadow-hover: 0 20px 40px rgba(124, 58, 237, 0.12);
+            --orb-opacity: 0.15;
+        }
 
-/* main */
-main{padding:6px 22px}
+        html {
+            scroll-behavior: smooth;
+        }
 
-/* buttons */
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:7px;
-  background:linear-gradient(135deg,var(--pri),#7C3AED);
-  color:#fff;padding:12px 18px;border-radius:12px;font-weight:700;font-size:14px;
-  transition:.2s;position:relative;overflow:hidden;
-  box-shadow:0 8px 24px -10px var(--pri-glow), inset 0 1px 0 rgba(255,255,255,.18);
-  letter-spacing:-.01em;
-}
-.btn:hover{transform:translateY(-1px);box-shadow:0 12px 28px -8px var(--pri-glow), inset 0 1px 0 rgba(255,255,255,.25)}
-.btn:active{transform:translateY(0)}
-.btn.g{background:linear-gradient(135deg,#10B981,#059669);box-shadow:0 8px 24px -10px rgba(16,185,129,.4), inset 0 1px 0 rgba(255,255,255,.18)}
-.btn.o{
-  background:var(--surface);color:var(--ink);
-  border:1px solid var(--border-strong);box-shadow:none;
-}
-.btn.o:hover{background:var(--surface-2);border-color:rgba(255,255,255,.2)}
-.btn.r{
-  background:var(--danger-bg);color:var(--danger);
-  border:1px solid rgba(248,113,113,.25);box-shadow:none;
-}
-.btn.r:hover{background:rgba(248,113,113,.2)}
-.btn.s{padding:8px 13px;font-size:12.5px;border-radius:9px;gap:5px;font-weight:600}
-.btn:disabled{opacity:.45;cursor:not-allowed;transform:none!important}
-.btn.full{width:100%}
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            line-height: 1.6;
+            transition: background 0.4s ease, color 0.4s ease;
+        }
 
-/* card */
-.card{
-  background:linear-gradient(180deg, rgba(34,30,66,.6), rgba(26,23,53,.6));
-  border:1px solid var(--border);
-  border-radius:var(--radius);padding:16px;margin-bottom:12px;
-  transition:.2s;
-  position:relative;
-}
-.card:hover{border-color:var(--border-strong)}
-.card-glass{background:rgba(255,255,255,.03)}
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            pointer-events: none;
+        }
 
-/* product row */
-.row{display:flex;gap:14px;align-items:center}
-.th{
-  width:64px;height:64px;border-radius:14px;flex:none;
-  display:grid;place-items:center;font-size:28px;overflow:hidden;
-  border:1px solid var(--border);position:relative;
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.1);
-}
-.th img{width:100%;height:100%;object-fit:cover}
-.grow{flex:1;min-width:0}
-.grow b{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:14.5px;font-weight:700;letter-spacing:-.01em}
-.grow small{color:var(--mute);font-size:12.5px;display:block;margin-top:3px}
-.price-tag{color:var(--acc);font-weight:700}
-.price-old{color:var(--mute-2);text-decoration:line-through;font-weight:500}
-.acts{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px;padding-top:12px;border-top:1px solid var(--border)}
+        .bg-animation .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: var(--orb-opacity);
+            animation: float 20s infinite ease-in-out;
+            transition: opacity 0.4s ease;
+        }
 
-/* forms */
-label{display:block;font-weight:600;font-size:12.5px;margin:16px 0 7px;color:var(--mute);letter-spacing:.02em;text-transform:uppercase}
-label small{font-weight:500;color:var(--mute-2);text-transform:none;letter-spacing:0;font-size:11.5px}
-input,select,textarea{
-  width:100%;padding:12px 14px;
-  border:1px solid var(--border-strong);border-radius:12px;
-  background:var(--surface);color:var(--ink);outline:none;
-  transition:.2s;font-size:14px;
-}
-input::placeholder,textarea::placeholder{color:var(--mute-2)}
-input:hover,select:hover,textarea:hover{border-color:rgba(255,255,255,.22)}
-input:focus,select:focus,textarea:focus{
-  border-color:var(--pri);background:var(--surface-2);
-  box-shadow:0 0 0 4px var(--pri-soft);
-}
-input[type=checkbox]{width:20px;height:20px;accent-color:var(--pri);cursor:pointer}
-input[type=color]{
-  padding:4px;height:48px;cursor:pointer;
-  border-radius:12px;background:var(--surface);
-}
-input[type=color]::-webkit-color-swatch-wrapper{padding:0}
-input[type=color]::-webkit-color-swatch{border:0;border-radius:8px}
-textarea{min-height:96px;resize:vertical;line-height:1.6;font-family:inherit}
-select{
-  appearance:none;cursor:pointer;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23A5A0C9' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
-  background-repeat:no-repeat;background-position:right 14px center;padding-right:40px;
-}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.chk{
-  display:flex;gap:10px;align-items:center;margin-top:18px;font-weight:600;
-  font-size:13.5px;padding:13px 14px;border-radius:12px;
-  background:var(--surface);border:1px solid var(--border);cursor:pointer;
-  transition:.2s;text-transform:none;color:var(--ink);
-}
-.chk:hover{border-color:var(--border-strong)}
-.chk input{flex:none}
+        .bg-animation .orb:nth-child(1) {
+            width: 600px;
+            height: 600px;
+            background: var(--primary);
+            top: -200px;
+            right: -200px;
+        }
 
-/* images */
-.imgs{display:flex;gap:12px;flex-wrap:wrap;margin-top:6px}
-.im{position:relative;width:90px}
-.im img{
-  width:90px;height:90px;object-fit:cover;border-radius:13px;
-  border:2px solid var(--border);display:block;transition:.2s;
-}
-.im.main img{border-color:var(--pri);box-shadow:0 0 0 4px var(--pri-soft)}
-.im button{
-  font-size:10.5px;font-weight:700;width:100%;margin-top:6px;padding:6px;
-  border-radius:8px;background:var(--surface);border:1px solid var(--border);
-  color:var(--mute);transition:.15s;text-transform:uppercase;letter-spacing:.03em;
-}
-.im button:hover:not(:disabled){color:var(--ink);border-color:var(--border-strong)}
-.im button:disabled{opacity:.5;cursor:default}
-.im .x{
-  position:absolute;top:-7px;right:-7px;width:26px;height:26px;
-  border-radius:50%;background:var(--danger);color:#fff;padding:0;margin:0;
-  border:2.5px solid var(--bg);font-size:12px;display:grid;place-items:center;
-  z-index:2;transition:.15s;
-}
-.im .x:hover{transform:scale(1.1);background:#EF4444}
-.upload-zone{
-  margin-top:12px;padding:20px;border-radius:14px;
-  border:1.5px dashed var(--border-strong);text-align:center;
-  color:var(--mute);font-size:13px;transition:.2s;cursor:pointer;font-weight:600;
-}
-.upload-zone:hover{border-color:var(--pri);background:var(--pri-soft);color:var(--ink)}
+        .bg-animation .orb:nth-child(2) {
+            width: 400px;
+            height: 400px;
+            background: var(--secondary);
+            bottom: -100px;
+            left: -100px;
+            animation-delay: -5s;
+        }
 
-/* hints */
-.hint{
-  background:linear-gradient(135deg, rgba(34,211,238,.08), rgba(139,92,246,.06));
-  border:1px solid rgba(34,211,238,.2);
-  border-radius:14px;padding:16px 18px;font-size:13px;line-height:1.65;
-  margin-bottom:16px;color:var(--ink);
-}
-.hint b{color:var(--acc);font-weight:700}
-.hint ol{padding-left:20px;margin-top:8px}
-.hint li{margin-bottom:5px}
-.hint li::marker{color:var(--acc);font-weight:700}
+        .bg-animation .orb:nth-child(3) {
+            width: 300px;
+            height: 300px;
+            background: var(--accent);
+            top: 50%;
+            left: 50%;
+            animation-delay: -10s;
+        }
 
-/* bottom bar */
-.bar{
-  position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:center;
-  padding:14px 20px calc(14px + env(safe-area-inset-bottom,0px));
-  background:linear-gradient(transparent, var(--bg) 35%);
-  z-index:30;pointer-events:none;
-}
-.bar div{
-  display:flex;gap:12px;width:100%;max-width:780px;pointer-events:auto;
-}
-.bar .btn{
-  flex:1;padding:15px;font-size:15px;
-  box-shadow:0 14px 40px -10px rgba(16,185,129,.5), inset 0 1px 0 rgba(255,255,255,.2);
-}
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(50px, -50px) scale(1.1); }
+            50% { transform: translate(-30px, 30px) scale(0.9); }
+            75% { transform: translate(30px, 50px) scale(1.05); }
+        }
 
-/* toast */
-.toast{
-  position:fixed;left:50%;bottom:100px;transform:translateX(-50%) translateY(20px);
-  background:linear-gradient(135deg,var(--surface-2),var(--surface));
-  color:var(--ink);padding:13px 20px;border-radius:14px;font-weight:600;
-  font-size:14px;z-index:50;max-width:90%;text-align:center;
-  opacity:0;pointer-events:none;transition:.3s;
-  border:1px solid var(--border-strong);
-  box-shadow:0 20px 50px -12px rgba(0,0,0,.6);
-  display:flex;align-items:center;gap:10px;
-}
-.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
-.toast.err{background:var(--danger-bg);border-color:rgba(248,113,113,.3);color:#FECACA}
-.toast::before{content:'✓';display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--success);color:#fff;font-size:13px;flex:none}
-.toast.err::before{content:'!';background:var(--danger)}
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            transition: var(--transition);
+        }
 
-/* typography */
-h2{
-  font-size:20px;font-weight:800;letter-spacing:-.02em;
-  margin-bottom:16px;display:flex;align-items:center;gap:10px;
-}
-h2::before{
-  content:'';width:4px;height:22px;border-radius:2px;
-  background:linear-gradient(180deg,var(--pri),var(--acc));
-}
-.section-title{
-  font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.12em;
-  color:var(--mute-2);margin:22px 0 10px;
-}
+        .navbar.scrolled {
+            background: var(--glass-strong);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            padding: 0.7rem 2rem;
+        }
 
-/* empty state */
-.empty{
-  text-align:center;padding:48px 24px;color:var(--mute);
-  border:1.5px dashed var(--border-strong);border-radius:var(--radius);
-}
-.empty .ico{font-size:44px;margin-bottom:12px;opacity:.6}
-.empty b{display:block;color:var(--ink);font-size:15px;margin-bottom:4px}
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
 
-/* stat pills */
-.stat-pill{
-  display:inline-flex;align-items:center;gap:5px;
-  font-size:11px;font-weight:700;padding:4px 9px;border-radius:8px;
-  background:var(--pri-soft);color:var(--pri);
-  border:1px solid rgba(139,92,246,.2);letter-spacing:.02em;
-}
-.stat-pill.deal{background:rgba(251,191,36,.1);color:var(--acc-2);border-color:rgba(251,191,36,.25)}
-.stat-pill.green{background:rgba(52,211,153,.1);color:var(--success);border-color:rgba(52,211,153,.25)}
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            flex-shrink: 0;
+        }
 
-/* fade animation */
-@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-main > *{animation:fadeUp .35s ease backwards}
-main > *:nth-child(2){animation-delay:.03s}
-main > *:nth-child(3){animation-delay:.06s}
-main > *:nth-child(4){animation-delay:.09s}
-main > *:nth-child(5){animation-delay:.12s}
+        .nav-logo-icon {
+            width: 42px;
+            height: 42px;
+            background: var(--gradient-1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: white;
+            box-shadow: 0 4px 15px rgba(124, 58, 237, 0.4);
+        }
 
-/* scrollbar */
-::-webkit-scrollbar{width:10px;height:10px}
-::-webkit-scrollbar-track{background:transparent}
-::-webkit-scrollbar-thumb{background:var(--surface-2);border-radius:5px;border:2px solid var(--bg)}
-::-webkit-scrollbar-thumb:hover{background:var(--border-strong)}
-</style>
-</head>
-<body>
-<div class="wrap">
-  <div class="top">
-    <h1><span class="logo-dot">🛠️</span> Admin Toko</h1>
-    <a href="index.html" target="_blank">Lihat Toko <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
-  </div>
-  <div class="tabs" id="tabs"></div>
-  <main id="main"></main>
-</div>
-<div class="bar"><div><button class="btn g" id="pub">🚀 Publish ke Website</button></div></div>
-<div class="toast" id="toast"></div>
+        .nav-logo-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
 
-<script>
-const $=s=>document.querySelector(s);
-const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-const LS=(k,v)=>{try{if(v===undefined)return localStorage.getItem(k);v===null?localStorage.removeItem(k):localStorage.setItem(k,v)}catch(e){}};
-let D=null,tab='produk',ed=null;
-const SITE0={announce:'',heroTitle:'Produk digital buatan sendiri, siap dipakai hari ini',heroText:'',cta:'Lihat semua produk',ticker:'Akses instan\nUpdate gratis',colors:{pri:'#6C4DFF',acc:'#FFE14D',bg:'#F1EEFF',ink:'#1B1464'}};
-const THEMES=[['Violet',{pri:'#6C4DFF',acc:'#FFE14D',bg:'#F1EEFF',ink:'#1B1464'}],['Mint',{pri:'#0E9F6E',acc:'#FFD84D',bg:'#E8FBF2',ink:'#0B3B2C'}],['Jeruk',{pri:'#FF5A1F',acc:'#FFD84D',bg:'#FFF1E6',ink:'#3A1406'}],['Permen',{pri:'#E0368A',acc:'#7CF2D0',bg:'#FFEAF4',ink:'#40082A'}]];
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+        }
 
-const toast=(m,err)=>{
-  const t=$('#toast');
-  t.textContent=m;
-  t.className='toast show'+(err?' err':'');
-  clearTimeout(toast.t);
-  toast.t=setTimeout(()=>t.classList.remove('show'),3400);
-};
-const save=()=>LS('fc_draft',JSON.stringify(D));
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            position: relative;
+        }
 
-async function init(){
-  let draft=LS('fc_draft');
-  if(draft){try{D=JSON.parse(draft)}catch(e){}}
-  if(!D){try{D=await (await fetch('data.json?'+Date.now())).json()}catch(e){
-    D={STORE:{name:'Funcomida Official Store',bio:'',followers:'0',sold:'0',rating:'5.0',whatsapp:'',socials:[]},CATEGORIES:[],PRODUCTS:[]};
-    toast('data.json belum ditemukan, mulai dari kosong',1);
-  }}
-  D.SITE={...SITE0,...D.SITE,colors:{...SITE0.colors,...(D.SITE||{}).colors}};
-  render();
-}
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
 
-function render(){
-  $('#tabs').innerHTML=[
-    ['produk','📦 Produk'],
-    ['kategori','🗂️ Kategori'],
-    ['toko','🏪 Info Toko'],
-    ['tampilan','🎨 Tampilan'],
-    ['publish','🚀 Publish']
-  ].map(t=>`<button class="tab ${tab===t[0]?'on':''}" data-tab="${t[0]}">${t[1]}</button>`).join('');
-  $('#main').innerHTML =
-    tab==='produk' ? (ed!==null?editForm():list()) :
-    tab==='kategori' ? cats() :
-    tab==='toko' ? shop() :
-    tab==='tampilan' ? look() : pubTab();
-  window.scrollTo(0,0);
-}
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-1);
+            transition: width 0.3s ease;
+        }
 
-const rp=n=>'Rp'+Number(n||0).toLocaleString('id-ID');
-const thumb=p=>p.image?`<img src="${esc(p.image)}" alt="">`:esc(p.emoji||'🛍️');
+        .nav-links a:hover::after {
+            width: 100%;
+        }
 
-function list(){
-  if(!D.PRODUCTS.length){
-    return `<button class="btn full" style="margin-bottom:16px" data-a="new">➕ Tambah Produk Baru</button>
-    <div class="empty"><div class="ico">📦</div><b>Belum ada produk</b><span>Ketuk tombol di atas untuk mulai.</span></div>`;
-  }
-  return `<button class="btn full" style="margin-bottom:16px" data-a="new">➕ Tambah Produk Baru</button>`+
-  D.PRODUCTS.map((p,i)=>`
-    <div class="card">
-      <div class="row">
-        <div class="th" style="background:${esc(p.color||'#FFF3B0')}">${thumb(p)}</div>
-        <div class="grow">
-          <b>${esc(p.name)||'<i style="opacity:.5">Produk tanpa nama</i>'}</b>
-          <small>
-            <span class="price-tag">${rp(p.price)}</span>
-            ${p.oldPrice?`<span class="price-old">${rp(p.oldPrice)}</span>`:''}
-            ${p.deal?'<span class="stat-pill deal" style="margin-left:6px">🔥 Promo</span>':''}
-            ${p.badge?`<span class="stat-pill" style="margin-left:6px">${esc(p.badge)}</span>`:''}
-          </small>
-        </div>
-      </div>
-      <div class="acts">
-        <button class="btn s g" data-a="edit" data-i="${i}">✏️ Edit</button>
-        <button class="btn s o" data-a="dup" data-i="${i}">📄 Duplikat</button>
-        <button class="btn s o" data-a="up" data-i="${i}" ${i===0?'disabled':''}>⬆️</button>
-        <button class="btn s o" data-a="down" data-i="${i}" ${i===D.PRODUCTS.length-1?'disabled':''}>⬇️</button>
-        <button class="btn s r" data-a="del" data-i="${i}">🗑️</button>
-      </div>
-    </div>`).join('');
-}
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
 
-const F=(k,l,o={})=>{
-  const p=D.PRODUCTS[ed];
-  const v=o.t==='l'?(p[k]||[]).join('\n'):o.t==='b'?(p[k]||[]).map(b=>b.join(' ')).join('\n'):p[k];
-  const h=o.area
-    ?`<textarea data-k="${k}" data-t="${o.t||''}" placeholder="${esc(o.ph||'')}">${esc(v)}</textarea>`
-    :`<input data-k="${k}" data-t="${o.t||''}" type="${o.type||'text'}" value="${esc(v)}" placeholder="${esc(o.ph||'')}" ${o.type==='number'?'inputmode="numeric" min="0"':''}>`;
-  return `<label>${l}${o.sm?` <small>${o.sm}</small>`:''}</label>${h}`;
-};
+        .theme-toggle {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            background: var(--glass);
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
 
-function editForm(){
-  const p=D.PRODUCTS[ed];
-  const im=[p.image,...(p.gallery||[])].filter(Boolean);
-  return `
-    <button class="btn s o" data-a="back" style="margin-bottom:16px">← Kembali ke daftar</button>
-    <h2>${p.name?esc(p.name):'Produk Baru'}</h2>
+        .theme-toggle:hover {
+            background: var(--glass-strong);
+            transform: translateY(-2px);
+        }
 
-    ${F('name','Nama produk',{ph:'Contoh: Funcomida Pro App'})}
-    ${F('badge','Label di kartu',{ph:'Terlaris / Baru',sm:'(opsional)'})}
+        .nav-cta {
+            background: var(--gradient-1);
+            color: white !important;
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+            transition: var(--transition);
+        }
 
-    <label>Kategori</label>
-    <select data-k="cat">
-      ${D.CATEGORIES.map(c=>`<option value="${esc(c.id)}" ${c.id===p.cat?'selected':''}>${esc(c.icon)} ${esc(c.name)}</option>`).join('')}
-    </select>
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(124, 58, 237, 0.5);
+        }
 
-    <div class="two" style="margin-top:4px">
-      <div>${F('price','Harga (Rp)',{type:'number',t:'n'})}</div>
-      <div>${F('oldPrice','Harga coret',{type:'number',t:'n',sm:'(untuk promo)'})}</div>
-    </div>
+        .nav-cta::after {
+            display: none !important;
+        }
 
-    <label class="chk">
-      <input type="checkbox" data-k="deal" ${p.deal?'checked':''}>
-      <span>🔥 Tampilkan di "Promo Hari Ini"</span>
-    </label>
+        .mobile-toggle {
+            display: none;
+            background: var(--glass);
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
 
-    <div class="section-title">Galeri Foto</div>
-    <div class="imgs">
-      ${im.map((u,i)=>`
-        <div class="im ${i?'':'main'}">
-          <img src="${esc(u)}" alt="">
-          <button class="x" data-a="rmimg" data-i="${i}">✕</button>
-          ${i?`<button data-a="mainimg" data-i="${i}">Utama</button>`:'<button disabled>Utama</button>'}
-        </div>`).join('')}
-    </div>
-    <label class="upload-zone" style="text-transform:none;letter-spacing:0;margin-top:12px;font-size:13px;color:var(--mute);font-weight:600">
-      📷 Upload foto dari HP / komputer
-      <input type="file" accept="image/*" multiple hidden id="file">
-    </label>
-    ${F('imgurl','Atau tempel link foto',{ph:'https://…',sm:'(lalu tekan Enter)'})}
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+        }
 
-    <div class="section-title">Detail Produk</div>
-    ${F('video','Link video',{ph:'YouTube atau .mp4 (boleh kosong)'})}
-    ${F('short','Deskripsi singkat')}
-    ${F('desc','Deskripsi lengkap',{area:1})}
-    ${F('features','Keunggulan',{area:1,t:'l',sm:'(satu baris = satu poin)',ph:'Akses seumur hidup\nUpdate gratis'})}
-    ${F('badges','3 Badge kecil',{area:1,t:'b',sm:'(emoji lalu teks, satu baris satu badge)',ph:'⚡ Instan\n🔒 Aman\n♾️ Seumur Hidup'})}
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            width: 100%;
+        }
 
-    <div class="section-title">Link Pembelian</div>
-    ${F('buyUrl','Link beli langsung',{ph:'https://…'})}
-    ${F('lykdUrl','Link beli via Lykd',{ph:'https://lykd.com/…'})}
+        .hero-content {
+            animation: slideUp 1s ease;
+        }
 
-    <div class="section-title">Tampilan & Sosial</div>
-    <div class="two">
-      <div>${F('emoji','Emoji (jika tanpa foto)')}</div>
-      <div><label>Warna latar</label><input type="color" data-k="color" value="${esc(p.color||'#FFF3B0')}"></div>
-    </div>
-    <div class="two">
-      <div>${F('rating','Rating (0-5)',{type:'number',t:'f'})}</div>
-      <div>${F('reviews','Jumlah ulasan',{type:'number',t:'n'})}</div>
-    </div>
-    ${F('likes','Jumlah suka awal',{type:'number',t:'n'})}
-    <div style="height:24px"></div>`;
-}
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--glass);
+            border: 1px solid var(--border);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--primary-light);
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(10px);
+        }
 
-function cats(){
-  if(!D.CATEGORIES.length){
-    return `<h2>Kategori</h2>
-    <div class="empty"><div class="ico">🗂️</div><b>Belum ada kategori</b><span>Tambahkan kategori pertama.</span></div>
-    <button class="btn full" style="margin-top:16px" data-a="newcat">➕ Tambah Kategori</button>`;
-  }
-  return `<h2>Kategori</h2>`+
-  D.CATEGORIES.map((c,i)=>`
-    <div class="card" style="display:flex;gap:10px;align-items:center;padding:12px">
-      <input style="width:64px;text-align:center;font-size:22px;padding:10px 4px" data-c="${i}" data-f="icon" value="${esc(c.icon)}">
-      <input data-c="${i}" data-f="name" value="${esc(c.name)}" style="flex:1">
-      <button class="btn s r" data-a="delcat" data-i="${i}">🗑️</button>
-    </div>`).join('')+
-  `<button class="btn full" style="margin-top:14px" data-a="newcat">➕ Tambah Kategori</button>`;
-}
+        .hero-badge .dot {
+            width: 8px;
+            height: 8px;
+            background: var(--success);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
 
-function shop(){
-  const s=D.STORE;
-  const f=(k,l,t)=>`<label>${l}</label><input data-s="${k}" value="${esc(s[k])}" ${t||''}>`;
-  return `<h2>Info Toko</h2>
-    ${f('name','Nama toko')}
-    <label>Bio</label><textarea data-s="bio">${esc(s.bio)}</textarea>
-    <div class="two">
-      <div>${f('followers','Pengikut')}</div>
-      <div>${f('sold','Terjual')}</div>
-    </div>
-    ${f('rating','Rating toko')}
-    ${f('whatsapp','Nomor WhatsApp <small>(format 628xxx)</small>')}
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
 
-    <div class="section-title">Sosial Media</div>
-    ${s.socials.map((x,i)=>`
-      <div class="card" style="padding:14px">
-        <div class="two">
-          <input data-so="${i}" data-f="icon" value="${esc(x.icon)}" placeholder="Emoji">
-          <input data-so="${i}" data-f="label" value="${esc(x.label)}" placeholder="Nama">
-        </div>
-        <input style="margin-top:10px" data-so="${i}" data-f="url" value="${esc(x.url)}" placeholder="https://…">
-        <button class="btn s r" style="margin-top:10px" data-a="delso" data-i="${i}">🗑️ Hapus</button>
-      </div>`).join('')}
-    <button class="btn o full" data-a="newso">➕ Tambah tautan</button>`;
-}
+        .hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
 
-function look(){
-  const s=D.SITE,c=s.colors;
-  const f=(k,l,t)=>`<label>${l}</label>${t?`<textarea data-st="${k}">${esc(s[k])}</textarea>`:`<input data-st="${k}" value="${esc(s[k])}">`}`;
-  return `<h2>Tampilan Website</h2>
-    ${f('announce','Pengumuman paling atas <small>(kosongkan untuk menyembunyikan)</small>')}
-    ${f('heroTitle','Judul besar beranda',1)}
-    ${f('heroText','Kalimat di bawah judul',1)}
-    ${f('cta','Teks tombol utama')}
-    ${f('ticker','Teks berjalan <small>(satu baris = satu kalimat)</small>',1)}
+        .hero h1 .gradient-text {
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
 
-    <div class="section-title">Tema Warna Siap Pakai</div>
-    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:16px">
-      ${THEMES.map((t,i)=>{
-        const cols=t[1];
-        return `<button class="btn o" data-a="theme" data-i="${i}" style="justify-content:flex-start;padding:12px 14px;height:auto">
-          <span style="display:flex;gap:3px;flex:none">
-            <span style="width:16px;height:16px;border-radius:5px;background:${cols.pri};box-shadow:inset 0 0 0 1px rgba(255,255,255,.2)"></span>
-            <span style="width:16px;height:16px;border-radius:5px;background:${cols.acc};box-shadow:inset 0 0 0 1px rgba(255,255,255,.2)"></span>
-            <span style="width:16px;height:16px;border-radius:5px;background:${cols.bg};box-shadow:inset 0 0 0 1px rgba(255,255,255,.2)"></span>
-          </span>
-          <span style="margin-left:4px">${t[0]}</span>
-        </button>`;
-      }).join('')}
-    </div>
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 520px;
+        }
 
-    <label>Warna kustom</label>
-    <div class="two">
-      ${[['pri','Warna utama'],['acc','Warna sorot'],['bg','Warna latar'],['ink','Warna teks & garis']].map(x=>`
-        <div><label style="margin-top:0">${x[1]}</label><input type="color" data-sc="${x[0]}" value="${esc(c[x[0]])}"></div>`).join('')}
-    </div>
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
 
-    <p style="color:var(--mute);font-size:12.5px;margin-top:20px;line-height:1.6;padding:14px;background:var(--surface);border-radius:12px;border:1px solid var(--border)">
-      💡 <b style="color:var(--ink)">Tips:</b> 3 produk teratas di daftar Produk tampil sebagai kartu besar di beranda. Ubah urutannya dengan tombol ⬆️ ⬇️.
-    </p>`;
-}
+        .btn-primary {
+            background: var(--gradient-1);
+            color: white;
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+            box-shadow: 0 4px 20px rgba(124, 58, 237, 0.4);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            font-family: inherit;
+        }
 
-function pubTab(){
-  const g=JSON.parse(LS('fc_gh')||'{}');
-  const f=(k,l,ph,t)=>`<label>${l}</label><input data-g="${k}" value="${esc(g[k]||'')}" placeholder="${esc(ph)}" ${t||''}>`;
-  return `<h2>Publish</h2>
-    <div class="hint">
-      <b>⚙️ Setup sekali saja</b> (minta pemilik toko):
-      <ol>
-        <li>Buka GitHub → Settings → Developer settings → Personal access tokens → <b>Fine-grained tokens</b> → Generate.</li>
-        <li>Pilih repo toko saja, beri izin <b>Contents: Read and write</b>.</li>
-        <li>Salin token, tempel di bawah. Selesai.</li>
-      </ol>
-      <p style="margin-top:10px">Setelah itu tombol <b>🚀 Publish</b> otomatis memperbarui website (Vercel selesai ±1 menit).</p>
-    </div>
-    ${f('o','Username GitHub','contoh: funcomida')}
-    ${f('r','Nama repository','contoh: funcomida-store')}
-    ${f('b','Branch','main')}
-    ${f('t','Token GitHub','github_pat_…','type="password"')}
-    <div class="acts" style="margin-top:20px;border:0;padding:0">
-      <button class="btn o" data-a="dl">⬇️ Unduh data.json</button>
-      <button class="btn o" data-a="reset">↩️ Buang perubahan lokal</button>
-    </div>
-    <p style="color:var(--mute);font-size:12.5px;margin-top:16px;line-height:1.6;padding:14px;background:var(--surface);border-radius:12px;border:1px solid var(--border)">
-      🔒 <b style="color:var(--ink)">Token hanya tersimpan di browser ini.</b> Perubahan otomatis tersimpan sebagai draf di perangkat ini sampai kamu menekan Publish.
-    </p>`;
-}
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(124, 58, 237, 0.6);
+        }
 
-/* ---------- gambar: kecilkan otomatis ---------- */
-function shrink(file){
-  return new Promise((ok,no)=>{
-    const r=new FileReader();
-    r.onerror=no;
-    r.onload=()=>{
-      const im=new Image();
-      im.onerror=no;
-      im.onload=()=>{
-        const m=900,s=Math.min(1,m/Math.max(im.width,im.height));
-        const c=document.createElement('canvas');
-        c.width=im.width*s;c.height=im.height*s;
-        c.getContext('2d').drawImage(im,0,0,c.width,c.height);
-        ok(c.toDataURL('image/jpeg',.82));
-      };
-      im.src=r.result;
-    };
-    r.readAsDataURL(file);
-  });
-}
-const setImgs=(p,arr)=>{p.image=arr[0]||'';p.gallery=arr.slice(1)};
-const allImgs=p=>[p.image,...(p.gallery||[])].filter(Boolean);
+        .btn-secondary {
+            background: var(--glass);
+            color: var(--text-primary);
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+            border: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+            cursor: pointer;
+            font-size: 1rem;
+            font-family: inherit;
+        }
 
-document.addEventListener('input',e=>{
-  const t=e.target;
-  if(t.dataset.k&&ed!==null){
-    const p=D.PRODUCTS[ed],k=t.dataset.k;
-    if(k==='imgurl')return;
-    p[k]=t.type==='checkbox'?t.checked:t.dataset.t==='n'?Math.max(0,parseInt(t.value)||0):t.dataset.t==='f'?Math.min(5,parseFloat(t.value)||0):t.dataset.t==='l'?t.value.split('\n').map(x=>x.trim()).filter(Boolean):t.dataset.t==='b'?t.value.split('\n').map(x=>x.trim()).filter(Boolean).map(x=>{const i=x.indexOf(' ');return i<0?['',x]:[x.slice(0,i),x.slice(i+1)]}):t.value;
-  }
-  else if(t.dataset.c!==undefined)D.CATEGORIES[t.dataset.c][t.dataset.f]=t.value;
-  else if(t.dataset.s)D.STORE[t.dataset.s]=t.value;
-  else if(t.dataset.so!==undefined)D.STORE.socials[t.dataset.so][t.dataset.f]=t.value;
-  else if(t.dataset.st)D.SITE[t.dataset.st]=t.value;
-  else if(t.dataset.sc)D.SITE.colors[t.dataset.sc]=t.value;
-  else if(t.dataset.g){const g=JSON.parse(LS('fc_gh')||'{}');g[t.dataset.g]=t.value.trim();LS('fc_gh',JSON.stringify(g));return}
-  save();
-});
+        .btn-secondary:hover {
+            background: var(--glass-strong);
+            transform: translateY(-3px);
+            border-color: var(--primary-light);
+        }
 
-document.addEventListener('change',async e=>{
-  if(e.target.id==='file'&&ed!==null){
-    const p=D.PRODUCTS[ed],a=allImgs(p);
-    toast('Memproses foto…');
-    for(const f of e.target.files){
-      try{a.push(await shrink(f))}
-      catch(x){toast('Gagal membaca '+f.name,1)}
-    }
-    setImgs(p,a);save();render();toast('Foto ditambahkan ✅');
-  }
-  if(e.target.dataset.k==='cat'&&ed!==null){D.PRODUCTS[ed].cat=e.target.value;save()}
-});
+        .hero-stats {
+            display: flex;
+            gap: 2.5rem;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            flex-wrap: wrap;
+        }
 
-document.addEventListener('keydown',e=>{
-  if(e.key==='Enter'&&e.target.dataset.k==='imgurl'){
-    const u=e.target.value.trim();
-    if(!u)return;
-    const p=D.PRODUCTS[ed];
-    setImgs(p,[...allImgs(p),u]);
-    save();render();
-  }
-});
+        .stat-item h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
 
-document.addEventListener('click',async e=>{
-  const tb=e.target.closest('[data-tab]');
-  if(tb){tab=tb.dataset.tab;ed=null;render();return}
-  const b=e.target.closest('[data-a]');
-  if(!b)return;
-  const a=b.dataset.a,i=+b.dataset.i,P=D.PRODUCTS;
-  if(a==='new'){P.unshift({id:'p'+Date.now().toString(36),name:'',cat:D.CATEGORIES[0]?.id||'',emoji:'🛍️',color:'#FFF3B0',price:0,oldPrice:0,deal:false,rating:5,reviews:0,likes:0,image:'',gallery:[],video:'',short:'',desc:'',features:[],badges:[['⚡','Instan'],['🔒','Aman'],['♾️','Seumur Hidup']],buyUrl:'',lykdUrl:''});ed=0;render()}
-  else if(a==='edit'){ed=i;render()}
-  else if(a==='back'){ed=null;render()}
-  else if(a==='dup'){P.splice(i+1,0,{...JSON.parse(JSON.stringify(P[i])),id:'p'+Date.now().toString(36),name:P[i].name+' (salinan)'});save();render();toast('Produk digandakan')}
-  else if(a==='del'){if(confirm('Hapus produk "'+P[i].name+'"?')){P.splice(i,1);save();render()}}
-  else if(a==='up'&&i>0){[P[i-1],P[i]]=[P[i],P[i-1]];save();render()}
-  else if(a==='down'&&i<P.length-1){[P[i+1],P[i]]=[P[i],P[i+1]];save();render()}
-  else if(a==='rmimg'){const p=P[ed],x=allImgs(p);x.splice(i,1);setImgs(p,x);save();render()}
-  else if(a==='mainimg'){const p=P[ed],x=allImgs(p),[m]=x.splice(i,1);setImgs(p,[m,...x]);save();render()}
-  else if(a==='newcat'){D.CATEGORIES.push({id:'k'+Date.now().toString(36),name:'Kategori baru',icon:'✨'});save();render()}
-  else if(a==='delcat'){if(confirm('Hapus kategori ini?')){D.CATEGORIES.splice(i,1);save();render()}}
-  else if(a==='newso'){D.STORE.socials.push({label:'',icon:'🔗',url:''});save();render()}
-  else if(a==='delso'){D.STORE.socials.splice(i,1);save();render()}
-  else if(a==='theme'){D.SITE.colors={...THEMES[i][1]};save();render();toast('Tema diganti')}
-  else if(a==='dl'){const l=document.createElement('a');l.href=URL.createObjectURL(new Blob([JSON.stringify(D,null,1)],{type:'application/json'}));l.download='data.json';l.click()}
-  else if(a==='reset'){if(confirm('Buang semua perubahan yang belum dipublish?')){LS('fc_draft',null);D=null;init()}}
-});
+        .stat-item p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 0;
+        }
 
-$('#pub').onclick=async()=>{
-  const g=JSON.parse(LS('fc_gh')||'{}');
-  if(!g.o||!g.r||!g.t){tab='publish';ed=null;render();toast('Isi data GitHub dulu (sekali saja)',1);return}
-  const btn=$('#pub');btn.disabled=true;btn.textContent='⏳ Mengirim…';
-  try{
-    const api=`https://api.github.com/repos/${g.o}/${g.r}/contents/data.json`,br=g.b||'main';
-    const H={Authorization:'Bearer '+g.t,Accept:'application/vnd.github+json'};
-    const r=await fetch(`${api}?ref=${br}`,{headers:H});let sha;
-    if(r.ok)sha=(await r.json()).sha;
-    else if(r.status===401)throw new Error('Token salah atau kedaluwarsa');
-    else if(r.status!==404)throw new Error('Repo/branch tidak ditemukan ('+r.status+')');
-    const bytes=new TextEncoder().encode(JSON.stringify(D,null,1));let s='';
-    bytes.forEach(c=>s+=String.fromCharCode(c));
-    const p=await fetch(api,{method:'PUT',headers:H,body:JSON.stringify({message:'Update toko via admin',content:btoa(s),branch:br,sha})});
-    if(!p.ok)throw new Error('Gagal menyimpan ('+p.status+'). Cek izin token: Contents → Read and write');
-    LS('fc_draft',null);toast('Berhasil! Website diperbarui dalam ±1 menit 🎉');
-  }catch(x){toast(x.message||'Gagal publish',1)}
-  btn.disabled=false;btn.textContent='🚀 Publish ke Website';
-};
-init();
-</script>
-</body>
-</html>
+        /* Hero Visual */
+        .hero-visual {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: slideUp 1s ease 0.3s both;
+        }
+
+        .hero-card-stack {
+            position: relative;
+            width: 100%;
+            max-width: 480px;
+            aspect-ratio: 1;
+        }
+
+        .floating-card {
