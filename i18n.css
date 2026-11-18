@@ -1,0 +1,17 @@
+/* i18n.css — pemilih bahasa + penyesuaian kanan-ke-kiri (Arab). Warna mengikuti tema biru yang ada; tanpa ungu. */
+.lg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.lg-opt{display:flex;flex-direction:column;align-items:center;gap:8px;padding:16px 8px;border-radius:16px;border:1.5px solid rgba(47,107,255,.18);background:rgba(255,255,255,.7);color:inherit;font:inherit;font-weight:600;cursor:pointer;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease,background .18s ease}
+.lg-opt i{font-style:normal;width:42px;height:42px;border-radius:14px;display:grid;place-items:center;font-weight:800;letter-spacing:.04em;font-size:14px;background:rgba(47,107,255,.1);color:#2F6BFF}
+.lg-opt span{font-size:13px;line-height:1.2;text-align:center}
+.lg-opt:active{transform:scale(.96)}
+.lg-opt[aria-pressed="true"]{border-color:#2F6BFF;background:linear-gradient(160deg,rgba(47,107,255,.12),rgba(47,107,255,.04));box-shadow:0 6px 18px rgba(47,107,255,.22)}
+.lg-opt[aria-pressed="true"] i{background:#2F6BFF;color:#fff}
+@media (max-width:360px){.lg-grid{grid-template-columns:1fr}.lg-opt{flex-direction:row;justify-content:flex-start;padding:12px 14px}}
+html[data-lang="ar"] body,html[data-lang="ar"] button,html[data-lang="ar"] input,html[data-lang="ar"] select,html[data-lang="ar"] textarea{font-family:"Noto Sans Arabic","Segoe UI",Tahoma,Arial,sans-serif}
+html[dir="rtl"] body{text-align:start}
+html[dir="rtl"] input[type="number"],html[dir="rtl"] input[type="url"],html[dir="rtl"] input[type="email"],html[dir="rtl"] input[type="tel"]{direction:ltr;text-align:right}
+html[dir="rtl"] .ac-x{margin-inline-start:auto}
+html[dir="rtl"] .ac-hint,html[dir="rtl"] .ac-card{text-align:start}
+/* Merek & logo "Beresin" selalu kiri-ke-kanan: tidak terbalik / tidak berpindah sisi di versi Arab */
+html[dir="rtl"] .brand,html[dir="rtl"] .ac-brand,html[dir="rtl"] .wo-brand,html[dir="rtl"] .fn-brand,html[dir="rtl"] .fn-logo,html[dir="rtl"] .wo-logo,html[dir="rtl"] .lg-logo,html[dir="rtl"] .es-logo,html[dir="rtl"] .rd-logo,html[dir="rtl"] [aria-label="Beresin"],html[dir="rtl"] [data-bn],html[dir="rtl"] [data-brand]{direction:ltr;unicode-bidi:isolate;text-align:left}
+html[dir="rtl"] .ac-brand b,html[dir="rtl"] .ac-brand small{unicode-bidi:isolate;direction:ltr}

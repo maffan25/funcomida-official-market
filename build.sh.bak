@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Build: minify JS/CSS dari folder sumber ini ke folder ../beresin_6_9 (siap deploy).
+# Syarat: Node.js. Pakai:  bash build.sh   (SELALU edit file di folder sumber, lalu build)
+set -e
+OUT="../beresin_6_9"; rm -rf "$OUT"; mkdir -p "$OUT"
+cp -r . "$OUT"; rm -f "$OUT/build.sh"
+ES="npx --yes esbuild"; [ -x /opt/npm-tools/node_modules/.bin/esbuild ] && ES=/opt/npm-tools/node_modules/.bin/esbuild
+for f in *.js; do case $f in sw.js) continue;; esac; $ES "$f" --minify --target=es2019 --legal-comments=none --outfile="$OUT/$f" --log-level=warning; done
+for f in *.css; do $ES "$f" --minify --target=es2019 --legal-comments=none --outfile="$OUT/$f" --log-level=warning; done
+echo "Selesai -> $OUT"
